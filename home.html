@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload e Análise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+        <button onclick="goToCreateUser()">Criar Novo Usuário</button>
+    </div>
+
+    <!-- Tela de Criação de Usuário -->
+    <div id="create-user-container" class="hidden">
+        <h2>Criar Novo Usuário</h2>
+        <input type="text" id="new-username" placeholder="Novo Usuário">
+        <input type="password" id="new-password" placeholder="Nova Senha">
+        <input type="email" id="new-email" placeholder="Email">
+        <button onclick="createUser()">Criar Usuário</button>
+        <button onclick="goBack('login')">Voltar para Login</button>
+    </div>
+
+    <!-- Tela de Upload de Imagem (Usuário) -->
+    <div id="upload-container" class="hidden">
+        <h2>Upload de Imagem</h2>
+        <input type="email" id="email" placeholder="Seu email">
+        <label class="upload-label">
+            <input type="file" id="file-input" accept="image/*" onchange="handleImageUpload(event)">
+            Escolher Imagem
+        </label>
+        <button onclick="submitImage()">Enviar</button>
+        <div id="image-preview"></div>
+        <button onclick="goBack('login')">Voltar para Login</button>
+    </div>
+
+    <!-- Tela de Admin (Visualização de Imagens) -->
+    <div id="admin-container" class="hidden">
+        <h2>Imagens Enviadas</h2>
+        <div id="image-list"></div>
+        <button onclick="goBack('login')">Voltar para Login</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
