@@ -1,0 +1,311 @@
+* {
+    margin:0;
+    padding:0;
+    font-family: helvetica;
+    box-sizing: border-box;
+}
+
+h1,h2,h3{
+    color: #333;
+
+}
+
+p{
+    color: #70747a;
+}
+
+
+
+
+.navbar-container {
+    width: 100%;
+    height: 80px;
+    background-color: #1d1d1d;
+    padding: 0 2rem;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #1d1d1d;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.navbar-itens {
+    position:absolute;
+    right: 0;
+    height: 80px;
+    line-height: 80px;
+    margin: 0;
+    display: inline-block;
+}
+
+.navbar-itens li{
+display: inline-block;
+text-transform:uppercase;
+margin-left: 15px;
+margin-right: 25px;
+}
+
+.navbar-itens a{
+    color:white;
+    text-decoration: none;
+    transition: 0,5s;
+}
+
+.navbar-itens a:hover{
+    color: #ccc;
+}
+
+.default-btn{
+    padding: 15px 20px;
+    background-color: rgb(37, 74, 196);
+    border-radius: 5px;
+}
+.navbar-itens .default-btn:hover{
+
+    color:white;
+    background-color: rgb(31, 67, 185);
+    
+}
+
+.main-banner{
+    background-image: url("../img/fundo.avif");
+    background-size: cover;
+    background-position: center;
+    padding: 10rem 0;
+}
+
+.main-banner h1, .main-banner p{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: black 3px 2px 3px;
+}
+
+.main-banner h1{
+    font-size: 40px;
+}
+
+.main-banner p{
+    font-size: 18px;
+}
+
+.sneaker{
+margin: auto;
+width: 150px;
+height: 150px;
+
+}
+
+.services-container {
+    padding: 3rem 0;
+    }
+
+.services-container ul{
+
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.services-container li {
+
+    flex: 1 1 200px;
+    list-style: none;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgb(7, 81, 104);
+    border-radius: 5px;
+    background-color: #e4f0fc;
+    margin: 10px;
+}
+
+.services-container h3 {
+    margin-bottom: 25px;
+}
+
+.services-container p {
+    line-height: 25px;
+}
+
+.pricing-container{
+    padding-bottom: 5rem;
+    text-align: center;
+}
+
+.pricing-container h2 {
+    font-size: 36px;
+    
+}
+
+.pricing-container p {
+    font-size: 20px;
+}
+
+.plans-container{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 50px auto 0;
+}
+
+ .plan{
+    flex: 1;
+    max-width: 275px;
+ }
+
+ .plan ul {
+    padding: 0; 
+ }
+
+ .plan li{
+list-style: none;
+height: 50px;
+line-height: 50px;
+background-color: rgb(195, 216, 221);
+color: #333;
+
+ }
+
+ .plan .price{
+
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+    margin: 0 auto -50px;
+    font-size: 18px;
+    position: relative;
+ }
+
+ .plan .plan-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    background-color: #333;
+    padding: 50px 0;
+ }
+
+ .plan .plan-btn{
+background-color: green;
+color: white;
+font-size: 24px;
+height: 75px;
+line-height: 75px;
+cursor: pointer;
+
+ }
+
+.anexos {
+    background-color: rgb(5, 35, 100);
+    text-align: center;
+    padding: 5rem 0;
+    
+}
+
+.anexos h2{
+    color: white;
+    font-size: 42px;
+    margin-bottom: 15px;
+
+}
+
+.anexos p{
+
+    color:#D5D5D5;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.anexos input{
+display: block;
+border: none;
+border-radius: 1px;
+margin: 0 auto;
+
+}
+
+.anexos input[type="file"] {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    border: 2px solid white;
+    background-color: rgb(14, 141, 180);
+    border-radius: 5px;
+}
+
+.anexos input[type="submit"] {
+   background-color: rgb(14, 141, 180);
+   padding: 15px 30px;
+   color: #fff;
+   font-size: 24px;
+   cursor: pointer;
+   opacity: 0.8;
+   border-radius: 5px;
+border: 3px solid #7faad3;
+
+   
+}
+
+.anexos input[type="submit"]:hover {
+   
+    opacity: 1;
+ }
+
+.contact-container {
+    text-align: center;
+    padding: 5rem 0 2rem;
+}
+
+.contact-container h2{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.contact-container p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 200px;
+    height: 40px;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #034888;
+    margin: 0 10px 20px;
+}
+
+.contact-container textarea{
+display: block;
+margin: 0 auto 20px;
+width: 470px;
+height: 150px;
+}
+
+.contact-container input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background-color: rgb(14, 141, 180);
+    color: #FFF;
+    cursor:pointer;
+}
+
+footer{
+text-align: center;
+font-weight: bold;
+margin: 50px 0 100px;
+
+}
+
+
