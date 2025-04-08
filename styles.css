@@ -3,15 +3,22 @@
     padding:0;
     font-family: helvetica;
     box-sizing: border-box;
+    
 }
 
-h1,h2,h3{
+h1{
     color: #333;
 
 }
 
+h2{
+    color:#e9e9e9
+}
+
+
+
 p{
-    color: #70747a;
+    color: #ffffff;
 }
 
 
@@ -49,39 +56,46 @@ margin-right: 25px;
 }
 
 .navbar-itens a{
+    
     color:white;
     text-decoration: none;
     transition: 0,5s;
 }
 
 .navbar-itens a:hover{
+    
     color: #ccc;
 }
 
 .default-btn{
     padding: 15px 20px;
-    background-color: rgb(37, 74, 196);
+    background: linear-gradient(#968FF8, #c2a5ca);
     border-radius: 5px;
+    
 }
 .navbar-itens .default-btn:hover{
-
+    transition: 2s;
     color:white;
-    background-color: rgb(31, 67, 185);
+    background: linear-gradient(#756fd4, #aa71b9);
     
 }
 
 .main-banner{
-    background-image: url("../img/fundo.avif");
-    background-size: cover;
+    background-image: url("../img/fundo\ 3.jpeg");
+    
     background-position: center;
-    padding: 10rem 0;
-}
+    padding: 10rem ;
+    margin: 0 50px 0 50px;
+    border-radius: 40px;
+    
+    }
 
 .main-banner h1, .main-banner p{
-    color: white;
+    color: rgb(3, 3, 3);
     text-align: center;
     font-weight: bold;
-    text-shadow: black 3px 2px 3px;
+    text-shadow: rgb(117, 117, 117) 3px 2px 3px;
+    
 }
 
 .main-banner h1{
@@ -93,14 +107,17 @@ margin-right: 25px;
 }
 
 .sneaker{
+    padding: 40px 0 0 0;
 margin: auto;
-width: 150px;
+width: 80%;
 height: 150px;
 
 }
 
 .services-container {
-    padding: 3rem 0;
+    padding: 3rem ;
+    border-bottom:1px solid gray;
+   
     }
 
 .services-container ul{
@@ -117,10 +134,11 @@ height: 150px;
     list-style: none;
     text-align: center;
     padding: 20px;
-    border: 2px solid rgb(7, 81, 104);
-    border-radius: 5px;
-    background-color: #e4f0fc;
+    border-radius: 10px;
+    background: linear-gradient(#968FF8, #c2a5ca);
     margin: 10px;
+    
+    
 }
 
 .services-container h3 {
@@ -129,11 +147,13 @@ height: 150px;
 
 .services-container p {
     line-height: 25px;
+    
 }
 
 .pricing-container{
     padding-bottom: 5rem;
     text-align: center;
+    
 }
 
 .pricing-container h2 {
@@ -150,11 +170,13 @@ height: 150px;
     justify-content: space-between;
     width: 40%;
     margin: 50px auto 0;
+    
 }
 
  .plan{
     flex: 1;
     max-width: 275px;
+    
  }
 
  .plan ul {
@@ -165,13 +187,15 @@ height: 150px;
 list-style: none;
 height: 50px;
 line-height: 50px;
-background-color: rgb(195, 216, 221);
-color: #333;
+background-color: #575757;
+color: #ffffff;
+font-style: italic;
+
 
  }
 
  .plan .price{
-
+    
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -188,8 +212,9 @@ color: #333;
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;
-    color:white;
-    background-color: #333;
+    color:rgb(34, 34, 34);
+    background: linear-gradient(#968FF8, #c2a5ca);
+    border-radius: 10px 10px 0 0;
     padding: 50px 0;
  }
 
@@ -204,14 +229,14 @@ cursor: pointer;
  }
 
 .anexos {
-    background-color: rgb(5, 35, 100);
+    background: linear-gradient(#c2a2ca, #968FF8);
     text-align: center;
     padding: 5rem 0;
     
 }
 
 .anexos h2{
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 42px;
     margin-bottom: 15px;
 
@@ -219,7 +244,7 @@ cursor: pointer;
 
 .anexos p{
 
-    color:#D5D5D5;
+    color:#353535;
     font-size: 24px;
     margin-bottom: 25px;
 }
@@ -229,6 +254,7 @@ display: block;
 border: none;
 border-radius: 1px;
 margin: 0 auto;
+border: 1px solid black;
 
 }
 
@@ -237,20 +263,19 @@ margin: 0 auto;
     padding: 10px;
     font-size: 20px;
     margin-bottom: 25px;
-    border: 2px solid white;
-    background-color: rgb(14, 141, 180);
-    border-radius: 5px;
+    background: linear-gradient(#968FF8, #c2a5ca);
+    border-radius: 10px;
 }
 
 .anexos input[type="submit"] {
-   background-color: rgb(14, 141, 180);
+    background: linear-gradient(#968FF8, #c2a5ca);
    padding: 15px 30px;
-   color: #fff;
+   color: #000000;
    font-size: 24px;
    cursor: pointer;
    opacity: 0.8;
    border-radius: 5px;
-border: 3px solid #7faad3;
+   
 
    
 }
@@ -282,8 +307,9 @@ border: 3px solid #7faad3;
     padding: 10px 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 2px solid #034888;
+    background-color: #838383;
     margin: 0 10px 20px;
+    
 }
 
 .contact-container textarea{
@@ -291,21 +317,25 @@ display: block;
 margin: 0 auto 20px;
 width: 470px;
 height: 150px;
+color:#ffffff;
+background-color: #838383;
+
+}
+::placeholder{
+    color:#e9e9e9;
 }
 
 .contact-container input[type="submit"] {
     display: block;
     margin: 0 auto;
-    background-color: rgb(14, 141, 180);
-    color: #FFF;
+    background: linear-gradient(#968FF8, #c2a5ca);
+    color: #141414;
     cursor:pointer;
 }
 
 footer{
 border-top:1px solid gray;
 text-align: center;
-font-weight: bold;
-margin: 50px 0 20px;
 padding: 60px;
 
 }
