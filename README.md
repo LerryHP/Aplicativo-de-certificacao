@@ -49,6 +49,7 @@ O VerifiQ permite que usuários enviem fotos e informações detalhadas de produ
 🔗 [GitHub](https://github.com/LerryHP)
 
 **Gabriel Majeau**  
+📧 [gabrielmajeaulopes@gmail.com](mailto:gabrielmajeaulopes@gmail.com)  
 🔗 [GitHub](https://github.com/gabmajeau)  
 🔗 [LinkedIn](https://www.linkedin.com/in/gabriel-felipe-majeau-lopes-279892197)  
 📸 [Instagram](https://instagram.com/gabrielmajeau?igshid=OGQ5ZDc2ODk2ZA==)
