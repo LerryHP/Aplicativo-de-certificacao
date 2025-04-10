@@ -1,0 +1,343 @@
+* {
+    margin:0;
+    padding:0;
+    font-family: helvetica;
+    box-sizing: border-box;
+    
+}
+
+h1{
+    color: #333;
+
+}
+
+h2{
+    color:#e9e9e9
+}
+
+
+
+p{
+    color: #ffffff;
+}
+
+
+
+
+.navbar-container {
+    width: 100%;
+    height: 80px;
+    background-color: #1d1d1d;
+    padding: 0 2rem;
+}
+
+.logo {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    border: 3px solid #1d1d1d;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.navbar-itens {
+    position:absolute;
+    right: 0;
+    height: 80px;
+    line-height: 80px;
+    margin: 0;
+    display: inline-block;
+}
+
+.navbar-itens li{
+display: inline-block;
+text-transform:uppercase;
+margin-left: 15px;
+margin-right: 25px;
+}
+
+.navbar-itens a{
+    
+    color:white;
+    text-decoration: none;
+    transition: 0,5s;
+}
+
+.navbar-itens a:hover{
+    
+    color: #ccc;
+}
+
+.default-btn{
+    padding: 15px 20px;
+    background: linear-gradient(#968FF8, #c2a5ca);
+    border-radius: 5px;
+    
+}
+.navbar-itens .default-btn:hover{
+    transition: 2s;
+    color:white;
+    background: linear-gradient(#756fd4, #aa71b9);
+    
+}
+
+.main-banner{
+    background-image: url("img/fundo\ 3.jpeg");
+    background-position: center;
+    padding: 10rem ;
+    margin: 0 50px 0 50px;
+    border-radius: 40px;
+    
+    }
+
+.main-banner h1, .main-banner p, .main-banner a{
+    color: rgb(3, 3, 3);
+    text-align: center;
+    font-weight: bold;
+    text-shadow: rgb(117, 117, 117) 3px 2px 3px;
+    
+}
+
+.main-banner h1{
+    font-size: 40px;
+}
+
+.main-banner p, a{
+    font-size: 18px;
+}
+
+.sneaker{
+padding: 40px 0 0 0;
+margin: auto;
+width: 80%;
+height: 150px;
+
+}
+
+.services-container {
+    padding: 3rem ;
+    border-bottom:1px solid gray;
+   
+    }
+
+.services-container ul{
+
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.services-container li {
+
+    flex: 1 1 200px;
+    list-style: none;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(#968FF8, #c2a5ca);
+    margin: 10px;
+    
+    
+}
+
+.services-container h3 {
+    margin-bottom: 25px;
+}
+
+.services-container p {
+    line-height: 25px;
+    
+}
+
+.pricing-container{
+    padding-bottom: 5rem;
+    text-align: center;
+    
+}
+
+.pricing-container h2 {
+    font-size: 36px;
+    
+}
+
+.pricing-container p {
+    font-size: 20px;
+}
+
+.plans-container{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 50px auto 0;
+    
+}
+
+ .plan{
+    flex: 1;
+    max-width: 275px;
+    
+ }
+
+ .plan ul {
+    padding: 0; 
+ }
+
+ .plan li{
+list-style: none;
+height: 50px;
+line-height: 50px;
+background-color: #575757;
+color: #ffffff;
+font-style: italic;
+margin: 0 10px 0 0;
+
+ }
+
+ .plan .price{
+    
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+    margin: 0 auto -50px;
+    font-size: 18px;
+    position: relative;
+ }
+
+ .plan .plan-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(34, 34, 34);
+    background: linear-gradient(#968FF8, #c2a5ca);
+    border-radius: 10px 10px 0 0;
+    padding: 50px 0;
+ }
+
+ .plan .plan-btn{
+background-color: green;
+color: white;
+font-size: 24px;
+height: 75px;
+line-height: 75px;
+cursor: pointer;
+
+ }
+
+.anexos {
+    background: linear-gradient(#c2a2ca, #968FF8);
+    text-align: center;
+    padding: 5rem 0;
+    
+}
+
+.anexos h2{
+    color: rgb(0, 0, 0);
+    font-size: 42px;
+    margin-bottom: 15px;
+
+}
+
+.anexos p{
+
+    color:#353535;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.anexos input{
+display: block;
+border: none;
+border-radius: 1px;
+margin: 0 auto;
+border: 1px solid black;
+
+}
+
+.anexos input[type="file"] {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    background: linear-gradient(#968FF8, #c2a5ca);
+    border-radius: 10px;
+}
+
+.anexos input[type="submit"] {
+    background: linear-gradient(#968FF8, #c2a5ca);
+   padding: 15px 30px;
+   color: #000000;
+   font-size: 24px;
+   cursor: pointer;
+   opacity: 0.8;
+   border-radius: 5px;
+   
+
+   
+}
+
+.anexos input[type="submit"]:hover {
+   
+    opacity: 1;
+ }
+
+.contact-container {
+    text-align: center;
+    padding: 5rem 0 2rem;
+}
+
+.contact-container h2{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.contact-container p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 200px;
+    height: 40px;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #838383;
+    margin: 0 10px 20px;
+    
+}
+
+.contact-container textarea{
+display: block;
+margin: 0 auto 20px;
+width: 470px;
+height: 150px;
+color:#ffffff;
+background-color: #838383;
+
+}
+::placeholder{
+    color:#e9e9e9;
+}
+
+.contact-container input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(#968FF8, #c2a5ca);
+    color: #141414;
+    cursor:pointer;
+}
+
+footer{
+border-top:1px solid gray;
+text-align: center;
+padding: 60px;
+
+}
+
+
