@@ -2,7 +2,7 @@
 
 Aplicação web desenvolvida como projeto de **Trabalho Integrado Acadêmico 3** na **PUC Minas – Poços de Caldas**, com o objetivo de realizar **verificação e certificação de autenticidade de produtos** (foco inicial em sneakers), utilizando **análise de dados** e **tecnologia blockchain**.
 
----
+-----
 
 ## 🧠 Visão Geral
 
