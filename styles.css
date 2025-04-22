@@ -21,21 +21,21 @@ p {
   color: #ffffff;
 }
 
-.tokens{
-    padding-top: 2.2%;
-    font-size: 115%;
-    color: #c98fff;
-    text-align: center;
-   text-transform: uppercase;
-   transition-duration: 1s;
-    }
+.tokens {
+  padding-top: 2.2%;
+  font-size: 115%;
+  color: #c98fff;
+  text-align: center;
+  text-transform: uppercase;
+  transition-duration: 1s;
+}
 
-    .tokens:hover{
-        color: rgb(255, 217, 0);
-        font-size: 120%;
-        transition: 0.7s;
-        text-shadow: rgb(114, 112, 0) 2px 2px 2px;
-    }
+.tokens:hover {
+  color: rgb(255, 217, 0);
+  font-size: 120%;
+  transition: 0.7s;
+  text-shadow: rgb(114, 112, 0) 2px 2px 2px;
+}
 .navbar-container {
   width: 100%;
   height: 80px;
@@ -162,7 +162,6 @@ a {
 
 .pricing-container p {
   font-size: 20px;
-  
 }
 
 .plans-container {
@@ -175,12 +174,10 @@ a {
 .plan {
   flex: 1;
   max-width: 275px;
-  
 }
 
 .plan ul {
   padding: 0;
-  
 }
 
 .plan li {
@@ -191,8 +188,9 @@ a {
   color: #ffffff;
   font-style: italic;
   padding-bottom: 22%;
-  a{text-decoration: none}
-  
+  a {
+    text-decoration: none;
+  }
 }
 
 .plan .price {
@@ -245,8 +243,6 @@ a {
   margin-bottom: 25px;
 }
 
-
-
 .contact-container {
   text-align: center;
   padding: 5rem 0 2rem;
@@ -296,45 +292,73 @@ a {
 footer {
   border-top: 2px solid #968ff8;
   text-align: center;
-  
+
   padding: 2rem;
-  p{
+  p {
     font-size: 90%;
     color: #968ff8;
   }
 }
 
-.select{
+.select {
   margin: 0 32% 5% 32%;
   border-radius: 10px;
   background: linear-gradient(#968ff8, #c2a5ca);
   transition-duration: 0.8s;
-  }
-  .select:hover{
-    transition: 0.8s;
-    margin: 0 31% 3% 31%;
-    border-radius: 10px;
-    background: linear-gradient(#8077ff, #bf90cc);
-  }
+}
+.select:hover {
+  transition: 0.8s;
+  margin: 0 31% 3% 31%;
+  border-radius: 10px;
+  background: linear-gradient(#8077ff, #bf90cc);
+}
 
-  .check{
-    margin: 0 42% 0 42%;
-    padding: 1rem;
-    border-radius: 10px;
-    background: linear-gradient(#968ff8, #c2a5ca);
-    transition-duration: 0.8s;
-    border: 1px pink solid;
-    }
-    .check:hover{
-      transition: 0.8s;
-      margin: 0 41.5% 1.75% 41.5%;
-      border-radius: 10px;
-      background: linear-gradient(#8077ff, #bf90cc);
-    }
+.check {
+  margin: 0 42% 0 42%;
+  padding: 1rem;
+  border-radius: 10px;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  transition-duration: 0.8s;
+  border: 1px pink solid;
+}
+.check:hover {
+  transition: 0.8s;
+  margin: 0 41.5% 1.75% 41.5%;
+  border-radius: 10px;
+  background: linear-gradient(#8077ff, #bf90cc);
+}
 
-.pay{
-  margin: 5% 20% 0 20%;
+.pay {
+  margin: 5% 20% 5% 20%;
   border: 1px pink solid;
   background-color: #363636;
   border-radius: 15px;
+  h1{color:#bf90cc ;text-shadow: #1d1d1d 2px 2px 3px; margin:3% 0 1.5% 0;text-align: center;}
+h2{text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px;text-align: center;}
+  h3{color: #8077ff ; text-align: left; margin: 1rem;text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px; }
+ 
+}
+
+.imagepay{
+  border: 2px #bf90cc solid;
+  border-radius: 3px 3px 0 0;
+  margin: 0 0 -0.5% 5%;
+  
+}
+
+.form{
+  
+  font-size: 100%;
+  margin-bottom: 5%;
+  display: inline-block;
+  margin-left: 5%;
+  border: 4px #bf90cc solid;
+  background-color: #bf90cc;
+  border-radius: 0 0 5px 5px;
+  display: block;
+}
+
+.send{
+  text-align: center;
+
 }
