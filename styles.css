@@ -162,22 +162,25 @@ a {
 
 .pricing-container p {
   font-size: 20px;
+  
 }
 
 .plans-container {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 70%;
   margin: 50px auto 0;
 }
 
 .plan {
   flex: 1;
   max-width: 275px;
+  
 }
 
 .plan ul {
   padding: 0;
+  
 }
 
 .plan li {
@@ -187,6 +190,9 @@ a {
   background-color: #575757;
   color: #ffffff;
   font-style: italic;
+  padding-bottom: 22%;
+  a{text-decoration: none}
+  
 }
 
 .plan .price {
@@ -224,7 +230,7 @@ a {
 .anexos {
   background: linear-gradient(#c2a2ca, #968ff8);
   text-align: center;
-  padding: 5rem 0;
+  padding: 7rem 0;
 }
 
 .anexos h2 {
@@ -239,36 +245,7 @@ a {
   margin-bottom: 25px;
 }
 
-.anexos input {
-  display: block;
-  border: none;
-  border-radius: 1px;
-  margin: 0 auto;
-  border: 1px solid black;
-}
 
-.anexos input[type="file"] {
-  text-align: center;
-  padding: 10px;
-  font-size: 20px;
-  margin-bottom: 25px;
-  background: linear-gradient(#968ff8, #c2a5ca);
-  border-radius: 10px;
-}
-
-.anexos input[type="submit"] {
-  background: linear-gradient(#968ff8, #c2a5ca);
-  padding: 1rem;
-  color: #000000;
-  font-size: 110%;
-  cursor: pointer;
-  opacity: 0.8;
-  border-radius: 5px;
-}
-
-.anexos input[type="submit"]:hover {
-  opacity: 1;
-}
 
 .contact-container {
   text-align: center;
@@ -325,4 +302,39 @@ footer {
     font-size: 90%;
     color: #968ff8;
   }
+}
+
+.select{
+  margin: 0 32% 5% 32%;
+  border-radius: 10px;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  transition-duration: 0.8s;
+  }
+  .select:hover{
+    transition: 0.8s;
+    margin: 0 31% 3% 31%;
+    border-radius: 10px;
+    background: linear-gradient(#8077ff, #bf90cc);
+  }
+
+  .check{
+    margin: 0 42% 0 42%;
+    padding: 1rem;
+    border-radius: 10px;
+    background: linear-gradient(#968ff8, #c2a5ca);
+    transition-duration: 0.8s;
+    border: 1px pink solid;
+    }
+    .check:hover{
+      transition: 0.8s;
+      margin: 0 41.5% 1.75% 41.5%;
+      border-radius: 10px;
+      background: linear-gradient(#8077ff, #bf90cc);
+    }
+
+.pay{
+  margin: 5% 20% 0 20%;
+  border: 1px pink solid;
+  background-color: #363636;
+  border-radius: 15px;
 }
