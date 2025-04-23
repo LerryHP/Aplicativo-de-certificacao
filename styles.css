@@ -202,7 +202,7 @@ a {
   text-align: center;
   line-height: 120px;
   margin: 0 auto -50px;
-  font-size: 18px;
+  font-size: 140%;
   position: relative;
 }
 
@@ -329,36 +329,64 @@ footer {
 }
 
 .pay {
-  margin: 5% 20% 5% 20%;
-  border: 1px pink solid;
-  background-color: #363636;
+  margin: 0 20% 3% 20%;
+  background-color: rgba(29, 29, 29, 0.95);
   border-radius: 15px;
-  h1{color:#bf90cc ;text-shadow: #1d1d1d 2px 2px 3px; margin:3% 0 1.5% 0;text-align: center;}
-h2{text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px;text-align: center;}
-  h3{color: #8077ff ; text-align: left; margin: 1rem;text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px; }
- 
+  h1{color:#bf90cc ;text-shadow: #1d1d1d 2px 2px 3px; margin:3% 0 1.5% 0;text-align: center;padding-top: 4%;}
+  h2{text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px;text-align: center; margin-bottom: 5%;}
+  h3{color: #8077ff ; text-align: center; margin: 1rem;text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px; font-size: 160%; }
+  input[type="file"]{   
+    display:block;
+    justify-content: center;
+    align-items: center;
+    
+  }
 }
 
 .imagepay{
   border: 2px #bf90cc solid;
-  border-radius: 3px 3px 0 0;
-  margin: 0 0 -0.5% 5%;
+  border-radius: 30px 30px 0 0;
+  
   
 }
 
 .form{
-  
+
   font-size: 100%;
   margin-bottom: 5%;
-  display: inline-block;
-  margin-left: 5%;
   border: 4px #bf90cc solid;
   background-color: #bf90cc;
   border-radius: 0 0 5px 5px;
-  display: block;
+  margin-top: -0.45%;
+  margin-left: 30.3%;
+    
 }
 
 .send{
   text-align: center;
+  margin-bottom: 5%;
+  font-size: 130%;
+  background: linear-gradient(#8077ff, #bf90cc);
+  padding: 1% 2% 1% 2%;
+  border-radius: 10px;
+  border: 1px pink solid;
+}
 
+.send:hover{
+
+
+  color: rgb(148, 18, 165);
+  transition: 0.5s;
+  border: 1.5px rgb(148, 18, 165) solid;
+
+}
+
+.posts{
+
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+  margin-bottom: 4%;
+  border-radius: 10px;
+  
+  
 }
