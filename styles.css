@@ -110,6 +110,7 @@ p {
   border-radius: 40px;
 }
 
+
 #free{
   animation: expand 3s ease-in-out infinite;
 }
@@ -133,16 +134,35 @@ a {
 }
 
 
-
 .sneaker {
-  padding: 40px 0 0 0;
-  margin: auto;
-  width: 80%;
-  height: 150px;
+  overflow: hidden;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 60%, #fff 50%, transparent);
 }
+.slide {
+  display: flex;
+  animation: scroll 5s linear infinite;
+  img {
+    width: 1080px;
+    height: 100px;
+}
+  }
+
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
 
 .services-container {
-  padding: 3rem;
+  padding: 1rem;
   border-bottom: 1px solid gray;
 }
 
@@ -327,10 +347,8 @@ footer {
   transition-duration: 0.8s;
 }
 .select:hover {
-  transition: 0.8s;
-  margin: 0 31% 3% 31%;
-  border-radius: 10px;
-  background: linear-gradient(#8077ff, #bf90cc);
+
+  box-shadow: 0 0 20px #ff61f7;
 }
 
 .check {
@@ -343,9 +361,7 @@ footer {
 }
 .check:hover {
   transition: 0.8s;
-  margin: 0 41.5% 1.75% 41.5%;
-  border-radius: 10px;
-  background: linear-gradient(#8077ff, #bf90cc);
+  box-shadow: 0 0 30px #474747;
 }
 
 .pay {
@@ -392,14 +408,7 @@ footer {
   border: 1px pink solid;
 }
 
-.send:hover{
 
-
-  color: rgb(148, 18, 165);
-  transition: 0.5s;
-  border: 1.5px rgb(148, 18, 165) solid;
-
-}
 
 .posts{
 
@@ -483,13 +492,22 @@ p{
   
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 .pagamento{
   text-align: center;
   background: linear-gradient(#968ff8, #c2a5ca); 
   padding: 20px; 
-  border: #ffffff 2px solid;
-  border-radius: 10px; 
+ 
+  border-radius: 30px; 
   width: 50%; 
   h2,h1{color: rgb(66, 0, 87);}
   margin: 5% 5% 5% 25%;
@@ -537,5 +555,5 @@ p{
   border-radius: 10px; 
   padding: 10% 3.5% 10% 3%;
   position: absolute;
-  margin: -25.5% 0 0 27.5%;
+  margin: -25.5% 0 0 27.7%;
     }
