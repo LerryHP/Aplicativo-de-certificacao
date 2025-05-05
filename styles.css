@@ -143,7 +143,7 @@ a {
 }
 .slide {
   display: flex;
-  animation: scroll 5s linear infinite;
+  animation: scroll 30s linear infinite;
   img {
     width: 1080px;
     height: 100px;
@@ -502,58 +502,74 @@ p{
 }
 
 
-.pagamento{
+.title{
+  h1{
+ text-align: center;
+ color: #ffffff;
+ margin-top: 6%;}
+}
+
+.card{
   text-align: center;
-  background: linear-gradient(#968ff8, #c2a5ca); 
-  padding: 20px; 
- 
-  border-radius: 30px; 
-  width: 50%; 
-  h2,h1{color: rgb(66, 0, 87);}
-  margin: 5% 5% 5% 25%;
-   
-}
-.pagamento input, button { 
-  width: 100%; 
-  border: 1px solid #ccc; 
-  border-radius: 2px; 
+  height: 300px;
+  width: 220px;
+  transition: 0.4s ease-out;
+  display: inline-block;
+  background: linear-gradient(to left, #aa71b9, #9c85a1);
+  box-shadow: -1rem 0 2rem #1d1d1d;
+  border-radius: 10px;
+  margin-left: 22%;
+  margin-top: 7%;
+  margin-right: -24% ;
+
+  h1{
+    margin-top: 15%;
+    transition: 1s;
   }
 
+  h2{
+    margin-top: 10%;
+    transition: 1s;
+    margin-bottom: 40%;
+  }
 
-
-.method{
   a{
-    margin: 5% 0 5% 0;
-    display: block;
+    opacity: 0;
     text-decoration: none;
-    padding: 16px 100% 16px 5px;
-    background-color: #bcb8f3;
-    border-radius: 4px;
-    
+    font-size: 130%;
+    border-radius: 15px;
+    color: white;
+    padding: 0.7rem;
+    background: linear-gradient(to left, green, rgb(56, 128, 56), rgb(75, 170, 75));
+    transition: 1s;
   }
-
-  a:hover{
-    background-color: #afabec;
-    
-  }
-
 
   
-  
-  i{
-    display:inline;
-    margin-right: 13px;
-    margin-left: 16px;
-   
+}
+
+a:hover{
+  box-shadow: 0 0 20px black;
+  transition-duration: 0.5s;
+ }
+
+.card:hover{
+  transform: translateX(-20px);
+  transition: 0.4 ease-out;
+  h1{
+    color: gold;
+    transition-duration: 0.4s;
   }
 
+  a{
+    opacity: 100;
+     transition-duration: 0.5s;
+    }
 
 }
 
-.amount{
-  background: #bcb8f3; 
-  border-radius: 10px; 
-  padding: 10% 3.5% 10% 3%;
-  position: absolute;
-  margin: -25.5% 0 0 27.7%;
-    }
+
+
+
+
+
+
