@@ -506,16 +506,18 @@ footer {
   }
 
   h3{
-    margin: 20% 0 0 75%;
+    margin: 20% 0 0 69%;
 
     a{
     color: #c2a2ca;
     text-decoration: none;
     box-shadow: none;
     text-align: center;
+    font-size: 170%;
+    transition-duration: 1s;
     }
     a:hover{
-      font-size: 102%;
+      font-size: 171%;
     }
     animation: fadein 2.5s;
   }
