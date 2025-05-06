@@ -1,162 +1,622 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verifiq</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="shortcut icon" href ="img/VERIFIQ (2).jpg" type="image/x-icon"/>
-</head>
-
-<body>
-
-  <div class="container" id="topo">
-    
-    <div class="navbar-container">
-      
-      <nav>
-        <a href="#topo">
-          <img src="img/logo2.png" alt="V" class="logo" />
-          
-        </a>
-        <ul class="navbar-itens">
-
-        
-          <li>
-            <a href="#anchor"> Suport</a>
-          </li>
-         
-                   <li>
-            <a href="https://github.com/LerryHP/Aplicativo-de-certificacao" target="_blank">
-              Github</a>
-          </li>
-
-          <li>
-            <a href="#" class="default-btn"> Login</a>
-          </li>
-        </ul>
-    
-        
-      </nav>
-    </div>
-
-
-    
-    <div id="topo">
-      <div class="aboutus" style="  background: radial-gradient(circle, transparent 0%, #5a5a5a,#383838, #1d1d1d 35%); height: 100vh;">
-
-    <h2>
-      Want to be sure your product is authentic? </h2>
-      <p>VerifiQ analyzes photos and details of your item
-        confirms its originality
-         and issues a digital certificate
-         registered on the blockchain.</br></br>
-         
-        <i>Security and trust in just a few clicks.</i>
-      </p>
-    <img src="img/jordan2.png" alt="jordan">
-    <h3 class="aboutus"><a href="#post">Get your free check.</a></h3>
-
-  </div>
-
-
-
-    <main>
-      
-      <div style="background-color: #1d1d1d">
-
-        <div class="sneaker">
-          <div class="slide">
-            <img src="img/marcas.png" alt="">
-            
-          </div>
-        </div>
-
-        <div class="sneaker2">
-          <div class="slide2">
-            <img src="img/marcas.png" alt="">
-            
-          </div>
-        </div>
-
-        <div class="sneaker3">
-          <div class="slide3">
-            <img src="img/marcas.png" alt="">
-            </div>
-        </div>
-      </div>
-        
+* {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+  box-sizing: border-box;
   
-      <section class="services-container">
-        <ul>
-          <li>
-            <i></i>
-            <h3 >Function</h3>
-            <p>
-              Our app verifies the authenticity of sneakers through
-              user-uploaded photos and detailed product information. Using a
-              combination of expert analysis and blockchain certification, we
-              provide a secure and reliable authentication process.
-            </p>
-          </li>
+}
 
-          <li>
-            <i></i>
-            <h3>Security</h3>
-            <p>
-             
-              Encrypted data handling protects user information and images,
-              ensuring privacy. Our system is designed to stay ahead of
-              counterfeiters, with future AI enhancements for even greater
-              accuracy.
-            </p >
-          </li>
-          
-          <li>
-            <i></i>
-            <h3>Speed</h3>
-            <p>
-              Our app combines expert analysis with advanced technology to
-              provide quick and precise sneaker authentication. Users receive
-              reliable results with a streamlined process, ensuring trust and
-              efficiency.
-            </p >
-          </li>
-          <nav id="post"></nav>
-        </ul>
-        
-      </br >
-      
-      
-      </section>
-      
-      <section class="anexos">
-        <h2 >Post your pics</h2>
-        <p>Send pics of every angles of your sneaker, like seams, original insole, laces, sole.</p>
-     
-        <a href="pay.html" style="text-decoration: none;"><p class="check" >CHECK FREE</p></a>
-      </section>
-      <div style="background-color: #1d1d1d;">
-      <section class="contact-container">
-        <h2 id="anchor">Need help?</h2>
-        <p>Send your message, into a day, a employer will contact you!</p>
-        <form>
-          <input type="text" name="name" id="name" placeholder="Text your name">
-          <input type="email" name="email" id="email" placeholder="Text your e-mail">
-          <textarea name="message" id="message" placeholder="Text whats you need"></textarea>
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-      </section>
-     </main>
-     <footer style="background-color: #1d1d1d;">
-      <p> Verifiq &copy; 2025</p>
-      <p> Gabriel Majeau - Gabriel Alderige - Lerry Pereira</p>
-     </footer>   
-     </section>
+h1 {
+  color: #333;
+}
+
+h2 {
+  color: #e9e9e9;
+}
+html {
+  scroll-behavior: smooth;
+  cursor: default;
+}
+
+p {
+  color: #ffffff;
+}
+
+
+.navbar-container {
+  width: 100%;
+  height: 10%;
+  background-color: #1d1d1d;
+
+  padding: 0 2rem;
+  position: fixed;
+  z-index: 1;
+  -webkit-box-shadow: 0px 21px 74px -1px rgba(29, 29, 29, 1);
+  -moz-box-shadow: 0px 21px 74px -1px rgba(29, 29, 29, 1);
+  box-shadow: 0px 21px 74px -1px rgba(29, 29, 29, 1);
+  
+}
+
+.logo {
+  margin-top:0.7%;
+  position: fixed;
+  width: 12%;
+  height: 7.5%;
+  transition-duration: 5s;
+
+
+  }
+
+  .logo:hover {
+     transition: 0.8s;
+     border-bottom: 1px white solid;
+       
+    }
+
+.navbar-itens {
+  position: absolute;
+  right: 0;
+  height: 80px;
+  line-height: 80px;
+  margin: 0;
+  display: inline-block;
+
+}
+
+.navbar-itens li {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-left: 15px;
+  margin-right: 25px;
+}
+
+.navbar-itens a {
+  color: white;
+  text-decoration: none;
+  transition: 0, 5s;
+}
+
+.navbar-itens a:hover {
+  color: #ccc;
+}
+
+.default-btn {
+  padding: 15px 20px;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  border-radius: 11px;
+  transition-duration: 1s;
+}
+.navbar-itens .default-btn:hover {
+  transition: 0.5s;
+  color: white;
+  background: linear-gradient(#756fd4, #aa71b9);
+  box-shadow: 0 0 20px #ff61f7;
+  border-radius: 11px;
+  
+}
+
+.plans-container1{
+  background:linear-gradient(to left, #3a3a3a, #363636);
+  display: inline-block;
+  margin-top: 15%;
+margin-left: 23%;
+margin-right: -20%;
+border-radius: 10px;
+box-shadow: -44px 7px 72px 23px rgba(0,0,0,0.69);
+-webkit-box-shadow: -44px 7px 72px 23px rgba(0,0,0,0.69);
+-moz-box-shadow: -44px 7px 72px 23px rgba(0,0,0,0.69);
+  h1{
+    background:linear-gradient(to left, #756fd4, #aa71b9);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    padding: 1.5rem; 
+  }
+  h2{
+    font-size: 130%;
+    padding: 0.5rem;
+    margin: 1rem;
+    margin-bottom: 20%;  
+  }
+      a{
+        text-decoration: none;
+        text-align: center;
+        border-radius: 15px;
+        background: linear-gradient(to left, rgb(25, 97, 25), rgb(72, 117, 72));
+        color: #1d1d1d;
+        padding: 1rem;
+        margin: auto 37%;
+        font-weight: bold;
+        font-size: 120%;
+      }
+}
+
+
+.plans-container2{
+  background:linear-gradient(to left, #3a3a3a, #363636);
+  display: inline-block;
+  margin-top: 15%;
+  margin-left: 23%;
+  margin-right: -20%;
+  border-radius: 10px;
+  transition: 0.4s ease;
+  box-shadow: 42px 2px 69px 38px rgba(0,0,0,0.69);
+  -webkit-box-shadow: 42px 2px 69px 38px rgba(0,0,0,0.69);
+  -moz-box-shadow: 42px 2px 69px 38px rgba(0,0,0,0.69);
+  
+  h1{
+    background:linear-gradient(to left, #756fd4, #aa71b9);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    padding: 1.5rem; 
     
-  </div>
-</body>
+    }
+  h2{
+    font-size: 130%;
+    padding: 0.5rem;
+    margin: 1rem;
+    margin-bottom: 20%;  
+    transition: 0.8s ease;
 
-</html>
+  }
+      a{
+        text-decoration: none;
+        text-align: center;
+        border-radius: 15px;
+        background: linear-gradient(to left, rgb(25, 97, 25), rgb(72, 117, 72));
+        color: #1d1d1d;
+        padding: 1rem;
+        margin: auto 37%;
+        font-weight: bold;
+        font-size: 120%;
+        transition: 0.8s ease;
+      }
+}
+
+
+
+.plans-container2:hover{
+  background:linear-gradient(to left, #53523d, #848849);
+  box-shadow: 0 0 40px #adaf39;
+
+  h1{
+    background:linear-gradient(to left, #d4cd6f, #b8b971);
+  color: yellow;
+  }
+
+  h2{
+   color: yellow;
+  }
+
+      a{
+        background: linear-gradient(to left, rgb(218, 231, 36), rgb(161, 156, 79));
+        transition-duration: 0.8s;
+         }
+}
+
+
+.sneaker {
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100px;
+  position:absolute;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 60%, #fff 50%, transparent);
+  animation: fadein 2.5s;
+  bottom: 0.2%;
+  
+}
+.slide {
+   animation: scroll 25s linear infinite;
+  img {
+    padding-left: 1.5%;
+    width: 67%;
+    height: 67%;
+    animation-fill-mode: backwards;
+}
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+  .sneaker2 {
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    position:absolute;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 60%, #fff 50%, transparent);
+    bottom: 0.2%;
+
+  }
+  .slide2 {
+       animation: scroll2 25s linear infinite;
+      animation-delay: 8.5s;
+      animation-fill-mode: backwards;
+    img {
+      width: 67%;
+      height: 67%;
+  }
+    }
+  
+    @keyframes scroll2 {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .sneaker3 {
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #fff 60%, #fff 50%, transparent);
+      bottom: 0.2%;
+    }
+    .slide3 {
+    
+      animation: scroll2 25s linear infinite;
+      animation-delay: 16.7s;
+      animation-fill-mode: backwards;
+   
+      img {
+        width: 67%;
+        height: 67%;
+    }
+      }
+    
+      @keyframes scroll3 {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+
+   
+
+.services-container {
+  background-color: #1d1d1d;
+  padding: 1rem;
+  border-bottom: 1px solid gray;
+}
+
+.services-container ul {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.services-container li {
+  flex: 1 1 200px;
+  list-style: none;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  margin: 10px;
+}
+
+.services-container h3 {
+  margin-bottom: 25px;
+}
+
+.services-container p {
+  line-height: 25px;
+  color: black;
+}
+
+
+
+.anexos {
+  background: linear-gradient(#c2a2ca, #968ff8);
+  text-align: center;
+  padding: 7rem 0;
+}
+
+.anexos h2 {
+  color: rgb(0, 0, 0);
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.anexos p {
+  color: #353535;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.contact-container {
+  text-align: center;
+  padding: 5rem 0 2rem;
+}
+
+.contact-container h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.contact-container p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 200px;
+  height: 40px;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #838383;
+  margin: 0 10px 20px;
+}
+
+.contact-container textarea {
+  display: block;
+  margin: 0 auto 20px;
+  width: 470px;
+  height: 150px;
+  color: #ffffff;
+  background-color: #838383;
+}
+::placeholder {
+  color: #e9e9e9;
+}
+
+.contact-container input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  color: #141414;
+  cursor: pointer;
+}
+
+footer {
+  border-top: 1px solid #968ff8;
+  text-align: center;
+
+  padding: 2rem;
+  p {
+    font-size: 90%;
+    color: #968ff8;
+  }
+}
+
+.select {
+  
+  padding: 0.5rem; 
+  text-align: center;
+  border-radius: 15px;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  transition-duration: 0.8s;
+  width: 8%;
+  font-weight: bold;
+  margin: 7% auto;
+  p{
+    
+    color: #1d1d1d;
+  }
+
+  
+}
+.select:hover {
+  box-shadow: 0 0 20px #ff61f7;
+}
+
+.check {
+  margin: 0 42% 0 42%;
+  padding: 1rem;
+  border-radius: 10px;
+  background: linear-gradient(#968ff8, #c2a5ca);
+  transition-duration: 0.8s;
+  border: 1px pink solid;
+}
+.check:hover {
+  transition: 0.8s;
+  box-shadow: 0 0 30px #474747;
+}
+
+.pay {
+  margin: 0 20% 3% 20%;
+  background-color: rgba(29, 29, 29, 0.95);
+  border-radius: 15px;
+  h1{color:#bf90cc ;text-shadow: #1d1d1d 2px 2px 3px; margin:3% 0 1.5% 0;text-align: center;padding-top: 4%;}
+  h2{text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px;text-align: center; margin-bottom: 5%;}
+  h3{color: #8077ff ; text-align: center; margin: 1rem;text-transform: uppercase;text-shadow: #1d1d1d 2px 2px 3px; font-size: 160%; }
+  input[type="file"]{   
+    display:block;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+.imagepay{
+  border: 2px #bf90cc solid;
+  border-radius: 30px 30px 0 0;
+  
+  
+}
+
+.form{
+
+  font-size: 100%;
+  margin-bottom: 5%;
+  border: 4px #bf90cc solid;
+  background-color: #bf90cc;
+  border-radius: 0 0 5px 5px;
+  margin-top: -0.45%;
+  margin-left: 30.3%;
+    
+}
+
+.send{
+  text-align: center;
+  margin-bottom: 5%;
+  font-size: 130%;
+  background: linear-gradient(#8077ff, #bf90cc);
+  padding: 1% 2% 1% 2%;
+  border-radius: 10px;
+  border: 1px pink solid;
+}
+
+
+
+.posts{
+
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+  margin-bottom: 4%;
+  border-radius: 10px;
+  
+  
+}
+
+.aboutus
+{
+  h2{
+    text-transform: uppercase;
+    padding-top: 10%;
+    font-size: 100%;
+    margin: 0 62% 0 8%;
+    color:#c2a2ca;
+    text-shadow: #141414 1px 1px 1px;
+    animation: fadein 2.5s;
+  }
+
+  p{
+    font-size: 100%;
+    margin: 2% 62% 0 8%;
+    color:#c2a2ca;
+    text-shadow: #141414 1px 1px 1px;
+    animation: fadein 2.5s;
+  }
+
+  h3{
+    margin: 20% 0 0 69%;
+
+    a{
+    color: #c2a2ca;
+    text-decoration: none;
+    box-shadow: none;
+    text-align: center;
+    font-size: 170%;
+    transition-duration: 1s;
+    }
+    a:hover{
+      font-size: 171%;
+    }
+    animation: fadein 2.5s;
+  }
+
+  img{
+    margin: -8% 0 0 32%;
+    width: 35%;
+    position:absolute;
+    animation: float 3s ease-in-out infinite;
+        
+  }
+
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+  
+}
+
+
+
+
+.title{
+  h1{
+ text-align: center;
+ color: #ffffff;
+ margin-top: 6%;}
+}
+
+.card{
+  text-align: center;
+  height: 300px;
+  width: 220px;
+  transition: 0.4s ease-out;
+  display: inline-block;
+  background: linear-gradient(to left, #aa71b9, #9c85a1);
+  box-shadow: -1rem 0 2rem #1d1d1d;
+  border-radius: 10px;
+  margin-left: 22%;
+  margin-top: 7%;
+  margin-right: -24% ;
+
+  h1{
+    margin-top: 15%;
+    transition: 1s;
+  }
+
+  h2{
+    margin-top: 10%;
+    transition: 1s;
+    margin-bottom: 40%;
+  }
+
+  a{
+    opacity: 0;
+    text-decoration: none;
+    font-size: 130%;
+    border-radius: 15px;
+    color: white;
+    padding: 0.7rem;
+    background: linear-gradient(to left, green, rgb(56, 128, 56), rgb(75, 170, 75));
+    transition: 1s;
+  }
+
+  
+}
+
+a:hover{
+  box-shadow: 0 0 20px black;
+  transition-duration: 0.5s;
+ }
+
+.card:hover{
+  transform: translateX(-20px);
+  transition: 0.4 ease-out;
+  h1{
+    color: gold;
+    transition-duration: 0.4s;
+  }
+
+  a{
+    opacity: 100;
+     transition-duration: 0.5s;
+    }
+
+}
+
+
+
+
+
+
+
