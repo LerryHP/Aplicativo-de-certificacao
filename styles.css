@@ -102,6 +102,9 @@ p {
 margin-left: 23%;
 margin-right: -20%;
 border-radius: 10px;
+box-shadow: -44px 7px 72px 23px rgba(0,0,0,0.69);
+-webkit-box-shadow: -44px 7px 72px 23px rgba(0,0,0,0.69);
+-moz-box-shadow: -44px 7px 72px 23px rgba(0,0,0,0.69);
   h1{
     background:linear-gradient(to left, #756fd4, #aa71b9);
     border-radius: 10px 10px 0 0;
@@ -136,11 +139,16 @@ border-radius: 10px;
   margin-right: -20%;
   border-radius: 10px;
   transition: 0.4s ease;
+  box-shadow: 42px 2px 69px 38px rgba(0,0,0,0.69);
+  -webkit-box-shadow: 42px 2px 69px 38px rgba(0,0,0,0.69);
+  -moz-box-shadow: 42px 2px 69px 38px rgba(0,0,0,0.69);
+  
   h1{
     background:linear-gradient(to left, #756fd4, #aa71b9);
     border-radius: 10px 10px 0 0;
     text-align: center;
     padding: 1.5rem; 
+    
     }
   h2{
     font-size: 130%;
@@ -148,6 +156,7 @@ border-radius: 10px;
     margin: 1rem;
     margin-bottom: 20%;  
     transition: 0.8s ease;
+
   }
       a{
         text-decoration: none;
