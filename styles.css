@@ -570,8 +570,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  box-shadow: 0 0 30px #0f7c1e;
-  border: 1px green solid;
+  box-shadow: 0 0 30px #d43ee7;
+  border: 1px rgb(197, 6, 188) solid;
 }
 
 }
