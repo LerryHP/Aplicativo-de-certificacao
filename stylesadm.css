@@ -1,0 +1,43 @@
+*{font-family: Helvetica;}
+.home-btn{
+    text-align: center;
+    margin-top: -1%;
+   
+
+
+    li{
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 5%;
+    }
+    a{
+        text-decoration: none;
+        color: green;
+        display: flex;
+        
+        font-weight: bold;
+        text-transform: uppercase;
+        
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+
+
+}
+
+@keyframes brilho {
+
+    
+    0% {
+        filter: brightness(140%);
+      }
+      100% {
+        filter: brightness(90%);
+        
+  }
+
+}
