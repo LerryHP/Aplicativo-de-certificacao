@@ -41,14 +41,15 @@ p {
   position: fixed;
   width: 12%;
   height: 7.5%;
-  transition-duration: 5s;
+  transition-duration: 0.8s;
+  border-bottom: 2px #1d1d1d solid;
 
 
   }
 
   .logo:hover {
      transition: 0.8s;
-     border-bottom: 1px white solid;
+     border-bottom: 2px white solid;
        
     }
 
@@ -476,7 +477,7 @@ footer {
 .info{
   margin: 0 auto;
   position: relative;
-  top: 130px;
+  top: 150px;
   border:none;
   color: #1d1d1d;
   font-size: 120%;
@@ -522,17 +523,51 @@ footer {
 
 }
 
-.info input::placeholder {
-  color: red;
-}
-.posts{
 
-  padding-bottom: 0.5%;
-  padding-top: 0.5%;
-  margin-bottom: 4%;
-  border-radius: 10px;
+.posts{
+  margin-top: 13%;
+  text-align: center;
+h1{
+  color: whitesmoke;
+  margin-bottom: 5%;
+}
+
+form{display: inline-block;
+}
+
+input{
+  text-align: center;
+   display: flex;
+  padding:0.7rem ;
+  margin-top: 1%;
+  margin-bottom: 20%;
+  background: linear-gradient(to left,#8077ff, #bf90cc);
+  border-radius: 0 0 7px 7px;
+}
+
+label{
+  font-size: 120%;
+  color: whitesmoke;
   
-  
+}
+
+input[type="submit"] {
+  background:linear-gradient(#8077ff, #bf90cc);
+  font-weight: bold;           
+  padding: 10px 20px;       
+  border: none;            
+  cursor: pointer;           
+  font-size: 16px;          
+  border-radius: 15px;   
+  transition: 0.6s;
+  margin-left: 35%;
+  border: 1px #1d1d1d solid;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 30px #0f7c1e;
+  border: 1px green solid;
+}
 }
 
 .aboutus
@@ -573,7 +608,7 @@ footer {
   }
 
   img{
-    margin: -14% 0 0 32%;
+    margin: -8% 0 0 32%;
     width: 35%;
     position:absolute;
     animation: float 3s ease-in-out infinite;
@@ -596,7 +631,10 @@ footer {
   
 }
 
-
+@keyframes mover {
+  0% { left: 0; }
+  100% { left: 20%; }
+}
 
 
 .title{
@@ -613,35 +651,52 @@ footer {
   transition: 0.4s ease-out;
   display: inline-block;
   background: linear-gradient(to left, #aa71b9, #9c85a1);
-  box-shadow: -1rem 0 2rem #1d1d1d;
   border-radius: 10px;
-  margin-left: 22%;
-  margin-top: 7%;
-  margin-right: -24% ;
+  margin-left: 18%;
+  margin-top: 15%;
+  margin-right: -17.5% ;
+  box-shadow: 0 0 20px black;
+  
 
   h1{
-    margin-top: 15%;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    border-radius: 10px 10px 0 0 ;
     transition: 1s;
+    background-color: rgb(48, 48, 48);
+    color: #9c85a1;
+    box-shadow: 0 0 5px 0 black;
+    font-size: 210%;
   }
 
   h2{
-    margin-top: 10%;
+    margin-top: 18%;
     transition: 1s;
     margin-bottom: 40%;
+    font-size: 190%;
   }
 
   a{
     opacity: 0;
     text-decoration: none;
     font-size: 130%;
-    border-radius: 15px;
+    border-radius: 10px;
     color: white;
-    padding: 0.7rem;
+    padding: 4% 15% 4% 15%;
+    margin-bottom: 10%;
     background: linear-gradient(to left, green, rgb(56, 128, 56), rgb(75, 170, 75));
     transition: 1s;
-  }
+  }  
+}
 
-  
+.card-container:hover .card {
+  filter: blur(2px);
+}
+
+
+.card-container .card:hover {
+  filter: blur(0);
+  transform: scale(1.05);
 }
 
 a:hover{
@@ -650,10 +705,13 @@ a:hover{
  }
 
 .card:hover{
-  transform: translateX(-20px);
-  transition: 0.4 ease-out;
+
   h1{
-    color: gold;
+    color: rgb(0, 255, 13);
+    transition-duration: 0.4s;
+  }
+  h2{
+    color: rgb(255, 251, 0);
     transition-duration: 0.4s;
   }
 
