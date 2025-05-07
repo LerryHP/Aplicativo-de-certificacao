@@ -633,7 +633,7 @@ form input[type="file"] {
   }
 
   img{
-    margin: -8% 0 0 32%;
+    margin: -13% 0 0 32%;
     width: 35%;
     position:absolute;
     animation: float 3s ease-in-out infinite;
