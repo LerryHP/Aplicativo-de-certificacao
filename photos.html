@@ -8,71 +8,87 @@
     <link rel="shortcut icon" href="img/VERIFIQ (2).jpg" type="image/x-icon" />
   </head>
 
-  <body
-    style="background-image: url(img/wppphotos.jpg); background-size: cover"
-  >
-    <div class="pay">
-      <h1>Send us the photos!</h1>
-      <h2>Follow the steps:</h2>
-      <form style="text-align: center">
-        <section class="posts">
-          <h3>Tennis sole</h3>
-          <img
-            src="img/sola.jpg"
-            alt="sola"
-            class="imagepay"
-            style="width: 39.5%"
-          />
-          <input type="file" name="image" class="form" />
-        </section>
+  <body style="background-color: #1d1d1d">
+   
+ 
+      <div class="navbar-container">
+        <nav>
+          <a href="home.html">
+            <img src="img/logo2.png" alt="V" class="logo" />
+          </a>
+          <ul class="navbar-itens">
+            <li>
+              <a href="home.html"> Suport</a>
+            </li>
+  
+            <li>
+              <a
+                href="https://github.com/LerryHP/Aplicativo-de-certificacao"
+                target="_blank"
+              >
+                Github</a
+              >
+            </li>
+  
+            <li>
+              <a href="#" class="default-btn"> Login</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-        <section class="posts">
-          <h3>Top of tennis</h3>
-          <img
-            src="img/topo.jpg"
-            alt=""
-            class="imagepay"
-            style="width: 39.5%"
-          />
-          <input type="file" name="image" class="form" />
-        </section>
 
-        <section class="posts">
-          <h3>Tennis seams</h3>
-          <img
-            src="img/costura.jpg"
-            alt=""
-            class="imagepay"
-            style="width: 39.4%"
-          />
-          <input type="file" name="image" class="form" />
-        </section>
+    <fieldset class="info">
+       <table cellspacing="20">
+   <h3>Sneaker basic info</h3>
+     <tr>
+      <td>
+       <label for="estado">Brand:</label>
+      </td>
+      <td>
+       <select name="estado"> 
+       <option value="none"></option> 
+       <option value="Adidas">Adidas</option> 
+       <option value="Asics">Asics</option> 
+       <option value="Converse">Converse</option> 
+       <option value="Fila">Fila</option> 
+       <option value="Mizuno">Mizuno</option> 
+       <option value="Nike">Nike</option> 
+       <option value="Olympikus">Olympikus</option> 
+       <option value="Puma">Puma</option> 
+       <option value="Reebok">Reebok</option> 
+       <option value="Vans">Vans</option> 
+      </select>
+      </td>
+     </tr>
 
-        <section class="posts">
-          <h3>Box (The serial number must appear)</h3>
-          <img
-            src="img/caixa.jpg"
-            alt=""
-            class="imagepay"
-            style="width: 39.4%"
-          />
-          <input type="file" name="image" class="form" />
-        </section>
+     <tr>
+      <td>
+       <label for="model">Model:</label>
+      </td>
+      <td>
+       <input type="text" name="modelo" size="22">
+      </td>
+     </tr>
 
-        <section class="posts">
-          <h3>Tennis tongue (the seial number must appear)</h3>
-          <img
-            src="img/lingua.jpg"
-            alt=""
-            class="imagepay"
-            style="width: 39.5%"
-          />
-          <input type="file" name="image" class="form" />
-        </section>
+     <tr>
+      <td>
+       <label for="numero">Number:</label>
+      </td>
+      <td>
+       <input type="number" name="numero" required size="4">
+      </td>
+     </tr>
 
-        <h2>Finish?</h2>
-        <input type="button" name="Send" value="Send" class="send" />
-      </form>
-    </div>
+     <tr><td><label for="info">Extra infos:</label></td><td>
+     <textarea name="message" id="message" placeholder="Text every information that you think you can help!"></textarea>
+    </td>
+     </tr>
+    </table>
+   </fieldset>
+
+
+
+
   </body>
 </html>
