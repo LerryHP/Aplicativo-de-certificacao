@@ -1,0 +1,22 @@
+*{font-family: Helvetica;}
+.home-btn{
+    text-align: center;
+    margin-top: -1%;
+   
+
+
+    li{
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 5%;
+    }
+    a{
+        text-decoration: none;
+        color: green;
+        display: flex;
+        
+        font-weight: bold;
+        text-transform: uppercase;
+        
+    }
+}
