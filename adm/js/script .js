@@ -1,13 +1,40 @@
-// Simulação de dados (em produção, será substituído por fetch do backend)
 const envios = [
   {
-    nome: "João Silva",
+    nome: "Teste",
     data: "2025-05-27",
     hora: "10:30",
     fotos: ["foto1.jpg", "foto2.jpg","foto3.jpg","foto4.jpg", "foto5.jpg"]
   },
   {
-    nome: "Maria Souza",
+    nome: "Teste",
+    data: "2025-05-27",
+    hora: "11:10",
+    fotos: ["foto1.jpg", "foto2.jpg","foto3.jpg","foto4.jpg", "foto5.jpg"]
+  }
+  ,
+  {
+    nome: "Teste",
+    data: "2025-05-27",
+    hora: "11:10",
+    fotos: ["foto1.jpg", "foto2.jpg","foto3.jpg","foto4.jpg", "foto5.jpg"]
+  }
+  ,
+  {
+    nome: "Teste",
+    data: "2025-05-27",
+    hora: "11:10",
+    fotos: ["foto1.jpg", "foto2.jpg","foto3.jpg","foto4.jpg", "foto5.jpg"]
+  }
+  ,
+  {
+    nome: "Teste",
+    data: "2025-05-27",
+    hora: "11:10",
+    fotos: ["foto1.jpg", "foto2.jpg","foto3.jpg","foto4.jpg", "foto5.jpg"]
+  }
+  ,
+  {
+    nome: "Teste",
     data: "2025-05-27",
     hora: "11:10",
     fotos: ["foto1.jpg", "foto2.jpg","foto3.jpg","foto4.jpg", "foto5.jpg"]
@@ -42,8 +69,11 @@ function mostrarDetalhes(index) {
     <p><strong>Date:</strong> ${envio.data}</p>
     <p><strong>Time:</strong> ${envio.hora}</p>
     <div><strong>Photos:</strong></div>
-    ${envio.fotos.map(f => `<img src="${f}" alt="Sneaker photo">`).join("")}
-  `;
+    
+    ${envio.fotos.map(f => `<img src="${f}" alt="Sneaker photo">`).join("")
+  }
+  <button>Aprove</button>
+     <button>Reprove</button>`;
 }
 
 carregarEnvios();
