@@ -13,6 +13,7 @@ h1 {
 .container {
   display: flex;
   gap: 20px;
+  margin-bottom: 3%;
 }
 
 .lista-usuarios, .detalhes {
@@ -49,4 +50,24 @@ img {
   max-width: 100%;
   height: auto;
   margin: 5px 0;
+}
+
+.return{
+  text-decoration:none; 
+  text-transform: uppercase;
+  font-weight: bold;
+  color:#1d1d1d ; 
+  background-color: rgb(245, 135, 255);
+  padding: 1rem; 
+  border-radius: 15px;
+  text-align: center; 
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+    width: fit-content;
+
+}
+
+.return:hover{
+  background-color: rgb(238, 162, 245);
 }
