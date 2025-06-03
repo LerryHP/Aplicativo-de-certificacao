@@ -18,27 +18,39 @@ The frontend provides a user-friendly interface to submit product details and vi
 
 ---
 
-## Development Team
+## How to run the FRONT only
 
-**Gabriel Majeau**  - Frontend
+The front only works in localhostage!
 
-📧 [gabrielmajeaulopes@gmail.com](mailto:gabrielmajeaulopes@gmail.com)  
-🔗 [GitHub](https://github.com/gabmajeau)  
-🔗 [LinkedIn](https://www.linkedin.com/in/gabriel-felipe-majeau-lopes-279892197)  
-📸 [Instagram](https://instagram.com/gabrielmajeau?igshid=OGQ5ZDc2ODk2ZA==)
+1. Dowload the zip.
+2. Extract the archive.
+3. Open the home.html
 
-**Lerry Henrique Pereira** - Blockchain 
+   
+---
 
-📧 [lerryhp@gmail.com](mailto:lerryhp@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/lerryhp/)  
-🔗 [GitHub](https://github.com/LerryHP)
+## Development Team 
 
 
-**Gabriel Alderige**  - Backend
-
-🔗 [GitHub](https://github.com/GabrielAlderige)
+#### 🤓 Lerry Henrique Pereira — Blockchain  
+ [lerryhp@gmail.com](mailto:lerryhp@gmail.com)  
+ [LinkedIn](https://www.linkedin.com/in/lerryhp/) | [GitHub](https://github.com/LerryHP)
 
 ---
+
+#### 😎 Gabriel Majeau — Frontend  
+ [gabrielmajeaulopes@gmail.com](mailto:gabrielmajeaulopes@gmail.com)  
+ [GitHub](https://github.com/gabmajeau) | [LinkedIn](https://www.linkedin.com/in/gabriel-felipe-majeau-lopes-279892197) | [Instagram](https://instagram.com/gabrielmajeau?igshid=OGQ5ZDc2ODk2ZA==)
+
+---
+
+#### 😥 Gabriel Alderige — Backend  
+ [GitHub](https://github.com/GabrielAlderige)
+
+
+
+---
+
 
 
 
