@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebase.js"></script>
+    <script src="script.js" defer></script>
+    <title>Login</title>
+</head>
+
+<body>
+  
+    <section class="conteinerpai">
+      <div class="barra-voltar" onclick="voltarHome()">
+  <span class="texto-voltar">Return</span>
+</div>
+
+</div>
+
+            <div class="card loginActive">
+                <div class="esquerda">
+                    <div class="formlogin">
+                        <h2>Login</h2>
+                        <form>
+                            <input type="email" placeholder="E-mail" id="email">
+                            <input type="password" placeholder="Password" id="senha">
+                            <button type="button" disabled="true" onclick="loginUsuario()">Enter</button>
+                        </form>
+                    </div>
+                    <div class="facalogin">
+                            <h2>Already have </br>an account?</h2>
+                            
+                            <button class="loginbutton">Login</button>
+                    </div>
+                </div>
+                <div class="direita">
+                    <div class="formcadastro">
+                        <h2>Register</h2>
+                        <form>
+                            <input type="text" placeholder="Name" id="new-username">
+                            <input type="email" placeholder="E-mail" id="new-email">
+                            <input type="password" placeholder="Password" id="new-senha">
+                            <input type="password" placeholder="Confirm your password" id="confirmar-senha">
+                            <button type="button" onclick="cadastrarUsuario()">Confirm</button>
+                        </form>
+                    </div>
+                    <div class="facacadastro">
+                        <h2>Don't have</br>an account?</h2>
+                        
+                        <button class="cadastrobutton">Register</button>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+
+
+
+</html>

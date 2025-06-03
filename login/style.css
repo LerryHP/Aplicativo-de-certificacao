@@ -1,0 +1,283 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nexa";
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: "Nexa";
+    src: url("assets/Nexa-ExtraLight.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nexa";
+    src: url("assets/Nexa-Heavy.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+body{
+    color: white;
+}
+
+
+h2{
+    font-size: 60px;
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    button{
+        background: linear-gradient(90deg, #968FF8 0%, #F1D3F9 100%);
+    }
+}
+
+
+input{
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+input::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+button{
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 400px;
+    font-weight: 700;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    transition: all.3s;
+}
+
+button:hover{
+    transform: translateY(-2px);
+}
+
+p{
+    margin-bottom: 32px;
+    width: 400px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+.conteinerpai{
+    width: 100%;
+    height: 100vh;
+    background-color: #14151a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 80%;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    padding: 32px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.esquerda, .direita{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+
+.formlogin, .facalogin, .formcadastro, .facacadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.facalogin, .facacadastro{
+    position: absolute;
+    h2, p{
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    button{
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+    }
+}
+
+
+/*backgroung movel*/
+
+.card::after{
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url(assets/FUNDO-JPEG.webp);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+
+
+/*LOGINACTIVE*/
+
+.card.loginActive .facalogin{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.loginActive .facacadastro{
+    transform: translateX(0);
+    transition: all.3s .3s;
+    opacity: 1;
+}
+
+.card.card.loginActive .formlogin{
+    transition: all.3s .3s;
+    opacity: 1;
+}
+
+.card.loginActive .formcadastro{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.loginActive::after{
+    transform: translateX(50%);
+}
+
+
+
+/*CADASTROACTIVE*/
+
+.card.cadastroActive .facacadastro{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.cadastroActive .formlogin{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.cadastroActive .facalogin{
+    transform: translateX(0);
+    transition: all.3s .3s;
+    opacity: 1;
+}
+
+
+.card.card.cadastroActive .formcadastro{
+    transition: all.3s .3s;
+    opacity: 1;
+}
+
+
+.card.cadastroActive::after{
+    transform: translateX(-50%);
+}
+
+
+/*Transitions*/
+
+.card::after{
+    transition: all.5s;
+}
+
+.facacadastro{
+    transition: all.3s;
+    transform: translateX(200%);
+    opacity: 0;
+}
+
+.formlogin{
+    opacity: 0;
+    transition: all.3s;
+}
+
+.facalogin{
+    transition: all.3s;
+    transform: translateX(-200%);
+    opacity: 0;
+}
+
+.formcadastro{
+    opacity: 0;
+    transition: all.3s;
+}
+
+.barra-voltar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: width 0.2s;
+  z-index: 2;
+  overflow: hidden;
+  transition: 0.8s;
+}
+
+.barra-voltar:hover {
+  width: 8%;
+}
+
+.texto-voltar {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  white-space: nowrap;
+  font-size: 200%;
+  text-transform: uppercase;
+   letter-spacing: 4px;
+}
+
+
