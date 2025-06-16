@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post your photos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="/FRONTEND/scriptphotos.js"></script>
+    <link rel="shortcut icon" href="img/VERIFIQ (2).jpg" type="image/x-icon" />
+  </head>
+
+  <body style="background-color: #1d1d1d">
+    <div class="navbar-container">
+      <nav>
+        <a href="home.html">
+          <img src="img/logo.png" alt="V" class="logo" />
+        </a>
+        <ul class="navbar-itens">
+          <li>
+            <a href="home.html"> Suport</a>
+          </li>
+
+          <li>
+            <a
+              href="https://github.com/LerryHP/Aplicativo-de-certificacao"
+              target="_blank"
+            >
+              Github</a
+            >
+          </li>
+
+          <li>
+            <a href="#" class="default-btn"> Login</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+
+  <form
+        action="http://localhost:3000/upload-sneaker"
+        method="post"
+        enctype="multipart/form-data"
+      >
+    <fieldset class="info">
+      <table cellspacing="20">
+        <h3>Sneaker basic info</h3>
+        <tr>
+          <td>
+            <label for="estado" >Brand:</label>
+          </td>
+          <td> 
+            <select name="estado" id="estado" placeholder="Select">
+              <option value="none">Select</option>
+              <option value="Adidas">Adidas</option>
+              <option value="Asics">Asics</option>
+              <option value="Converse">Converse</option>
+              <option value="Fila">Fila</option>
+              <option value="Mizuno">Mizuno</option>
+              <option value="Nike">Nike</option>
+              <option value="Olympikus">Olympikus</option>
+              <option value="Puma">Puma</option>
+              <option value="Reebok">Reebok</option>
+              <option value="Vans">Vans</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="model">Model:</label>
+          </td>
+          <td>
+            <input type="text" name="modelo" size="22" id="modelo" placeholder="Sneaker Model"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="numero" >Number:</label>
+          </td>
+          <td>
+            <input type="number" name="numero" required size="4"  id="numero" placeholder="Size"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="info">Extra infos:</label></td>
+          <td>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Text every information that you think you can help!"
+            ></textarea>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <div class="posts">
+      <h1>Post your photos</h1>
+        <div class="form-group">
+          <label for="topo sapato">Top (with laces)</label>
+          <img
+            src="img/photos/cima.jpg"
+            alt=""
+            style="
+              width: 25%;
+              border: 3px #424242 solid;
+              border-radius: 10px 10px 0 0;
+            "
+          />
+          <input
+            type="file"
+            name="topo_sapato"
+            accept="image/jpeg, image/png"
+          />
+
+          <label for="sola">Sole</label>
+          <img
+            src="img/photos/sola.jpg"
+            alt=""
+            style="
+              width: 25%;
+              border: 3px #424242 solid;
+              border-radius: 10px 10px 0 0;
+            "
+          />
+          <input type="file" name="sola" accept="image/jpeg, image/png" />
+
+          <label for="lingua">Tennis tongue</label>
+          <img
+            src="img/photos/lingua.jpg"
+            alt=""
+            style="
+              width: 25%;
+              border: 3px #424242 solid;
+              border-radius: 10px 10px 0 0;
+            "
+          />
+          <input type="file" name="lingua" accept="image/jpeg, image/png" />
+
+          <label for="lado">Side</label>
+          <img
+            src="img/photos/lado.jpg"
+            alt=""
+            style="
+              width: 25%;
+              border: 3px #424242 solid;
+              border-radius: 10px 10px 0 0;
+            "
+          />
+          <input type="file" name="lado" accept="image/jpeg, image/png" />
+
+          <label for="caixa">Box</label>
+          <img
+            src="img/photos/caixa.jpg"
+            alt=""
+            style="
+              width: 25%;
+              border: 3px #424242 solid;
+              border-radius: 10px 10px 0 0;
+            "
+          />
+          <input type="file" name="caixa" accept="image/jpeg, image/png" />
+        </div>
+        <input type="submit" value="Finish" />
+      </form>
+    </div>
+
+
+    <img
+      src="img/marcas/adidas.png"
+      alt=""
+      style="
+        width: 15%;
+        position: absolute;
+        margin: -150% 0 0 0;
+        animation: float 10s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/nike.png"
+      alt=""
+      style="
+        width: 23%;
+        position: absolute;
+        margin: -180% 0 0 70%;
+        animation: float 5s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/mizuno.png"
+      alt=""
+      style="
+        width: 20%;
+        position: absolute;
+        margin: -140% 0 0 15%;
+        animation: float 6s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/vans.png"
+      alt=""
+      style="
+        width: 8%;
+        position: absolute;
+        margin: -170% 0 0 20%;
+        animation: float 5s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/puma.png"
+      alt=""
+      style="
+        width: 17%;
+        position: absolute;
+        margin: -160% 0 0 80%;
+        animation: float 7s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/converse.png"
+      alt=""
+      style="
+        width: 6%;
+        position: absolute;
+        margin: -110% 0 0 75%;
+        animation: float 7s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/olympikus.png"
+      alt=""
+      style="
+        width: 10%;
+        position: absolute;
+        margin: -115% 0 0 5%;
+        animation: float 4s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/fila.png"
+      alt=""
+      style="
+        width: 15%;
+        position: absolute;
+        margin: -135% 0 0 70%;
+        animation: float 6s infinite;
+        z-index: -1;
+      "
+    />
+
+    <img
+      src="img/marcas/adidas.png"
+      alt=""
+      style="
+        width: 15%;
+        position: absolute;
+        margin: -60% 0 0 75%;
+        animation: float 10s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/nike.png"
+      alt=""
+      style="
+        width: 20%;
+        position: absolute;
+        margin: -80% 0 0 5%;
+        animation: float 5s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/mizuno.png"
+      alt=""
+      style="
+        width: 25%;
+        position: absolute;
+        margin: -85% 0 0 65%;
+        animation: float 6s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/vans.png"
+      alt=""
+      style="
+        width: 10%;
+        position: absolute;
+        margin: -40% 0 0 15%;
+        animation: float 5s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/puma.png"
+      alt=""
+      style="
+        width: 17%;
+        position: absolute;
+        margin: -20% 0 0 15%;
+        animation: float 7s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/puma.png"
+      alt=""
+      style="
+        width: 17%;
+        position: absolute;
+        margin: -97% 0 0 16%;
+        animation: float 7s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/converse.png"
+      alt=""
+      style="
+        width: 10%;
+        position: absolute;
+        margin: -10% 0 0 75%;
+        animation: float 7s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/olympikus.png"
+      alt=""
+      style="
+        width: 10%;
+        position: absolute;
+        margin: -40% 0 0 65%;
+        animation: float 4s infinite;
+        z-index: -1;
+      "
+    />
+    <img
+      src="img/marcas/fila.png"
+      alt=""
+      style="
+        width: 15%;
+        position: absolute;
+        margin: -60% 0 0 20%;
+        animation: float 6s infinite;
+        z-index: -1;
+      "
+      
+    />
+
+  </body>
+</html>
