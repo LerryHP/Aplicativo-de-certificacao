@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post your photos</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="/FRONTEND/scriptphotos.js"></script>
+    <script src="authGuard.js"></script> 
     <link rel="shortcut icon" href="img/VERIFIQ (2).jpg" type="image/x-icon" />
   </head>
 
@@ -30,7 +30,7 @@
           </li>
 
           <li>
-            <a href="#" class="default-btn"> Login</a>
+            <a href="#" class="default-btn" id="logoutButton"> Logout</a>
           </li>
         </ul>
       </nav>
@@ -358,6 +358,12 @@
       "
       
     />
+
+
+    <p>Nome de Usuário: <span id="nomeUsuarioPagina"></span></p>
+    <p>Email: <span id="emailUsuarioPagina"></span></p>
+    <p>Suas Moedas: <span id="moedasUsuarioPagina"></span></p>
+
 
   </body>
 </html>

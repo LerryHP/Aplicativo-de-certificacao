@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <script src="authGuard.js"></script> 
   </head>
 
   <body style="background-color: #1d1d1d">
@@ -33,7 +34,7 @@
           </li>
 
           <li>
-            <a href="#" class="default-btn"> Login</a>
+            <a href="#" class="default-btn" id="logoutButton"> Logout</a>
           </li>
         </ul>
       </nav>
@@ -75,5 +76,9 @@
       Return
       </p></a>
   </div>
+
+    <p>Nome de Usuário: <span id="nomeUsuarioPagina"></span></p>
+    <p>Email: <span id="emailUsuarioPagina"></span></p>
+    <p>Suas Moedas: <span id="moedasUsuarioPagina"></span></p>
   </body>
 </html>
