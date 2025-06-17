@@ -15,7 +15,6 @@ cadastrobutton.onclick = () => {
 };
 
 
-
 function cadastrarUsuario() {
     const nome = document.getElementById('new-username').value;
     const email = document.getElementById('new-email').value;
@@ -78,6 +77,7 @@ function loginUsuario() {
 
         // Redireciona para home
         window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html';
+        console.log("Logado")
       } else {
         alert(data.mensagem || 'Email ou senha incorretos!');
       }

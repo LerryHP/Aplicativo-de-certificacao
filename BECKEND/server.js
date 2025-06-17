@@ -84,10 +84,6 @@ app.post('/upload-sneaker', upload.fields([
   }
 });
 
-// FORM HTML //
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
 
 // CADASTRO //
 app.post('/cadastro', async (req, res) => {
@@ -161,6 +157,7 @@ app.post('/send-email', async (req, res) => {
     res.status(500).json({ success: false, mensagem: 'Erro ao enviar o e-mail.' });
   }
 });
+
 
 
 /*

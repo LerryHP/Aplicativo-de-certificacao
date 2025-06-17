@@ -1,10 +1,65 @@
-fetch('http://localhost:3000/perfil', {
-  credentials: 'include'
-})
-.then(res => {
-  if (res.status === 200) return res.json();
-  else throw new Error('Não autenticado');
-})
+// home.js - VERSÃO SÓ COM LOCALSTORAGE
 
-const dados = await
-const button = document.getElementById('botao');
+async function initHome() {
+    const authButton = document.getElementById('authButton')
+
+    // 1. Tentar recuperar o usuário do localStorage
+    const usuarioSalvo = localStorage.getItem('usuario');
+
+    console.log('HOME.JS: Valor bruto de "usuario" no localStorage:', usuarioSalvo); // ADICIONE ESTA LINHA
+
+    // 2. Verificar se o usuário está logado
+    if (!usuarioSalvo) {
+        console.log('Nenhum usuário encontrado no localStorage. Redirecionando para o login.');
+
+        if(authButton){
+            authButton.textContent = 'Login'
+            authButton.href = 'http://127.0.0.1:5500/FRONTEND/login/index.html'
+        }
+        // Ative esta linha para redirecionar se o usuário não estiver logado
+        //window.location.href = 'http://127.0.0.1:5500/FRONTEND/login/index.html';
+
+        return; // Interrompe a execução da função
+    }
+
+    let usuario;
+    try {
+        usuario = JSON.parse(usuarioSalvo);
+        console.log('Usuário recuperado do localStorage:', usuario);
+
+        if(authButton) {
+            authButton.textContent = 'Logout'
+            authButton.href = '#'
+            authButton.onclick = () => {
+                localStorage.removeItem('usuario');
+                alert("Você foi desconectado");
+                window.location.href = 'http://127.0.0.1:5500/FRONTEND/login/index.html';
+            }
+        }
+
+        // AQUI VOCÊ ATUALIZA SUA INTERFACE DO USUÁRIO com os dados do LOCALSTORAGE
+        // Descomente e adapte estas linhas para exibir os dados na sua home.html
+        // Certifique-se de que sua home.html tem elementos com esses IDs (ex: <span id="nomeUsuario"></span>)
+        document.getElementById('nomeUsuario').textContent = usuario.nome || 'Visitante';
+        document.getElementById('emailUsuario').textContent = usuario.email || 'N/A';
+        document.getElementById('moedasUsuario').textContent = usuario.moedas !== undefined ? usuario.moedas : 'N/A';
+        // Adicione aqui outros campos que você salvou no localStorage (ex: usuario.id)
+
+    } catch (e) {
+        console.error('Erro ao fazer parse do usuário do localStorage:', e);
+        // Se o JSON estiver corrompido, limpa o localStorage e redireciona
+        localStorage.removeItem('usuario');
+        alert("Seu login expirou, por favor faça login novamente")
+        // Ative esta linha para redirecionar em caso de erro no parse do localStorage
+        window.location.href = 'http://127.0.0.1:5500/FRONTEND/login/index.html';
+        return;
+    }
+
+    // REMOVEMOS AQUI O BLOCO 'try...catch' DA REQUISIÇÃO AO ENDPOINT /PERFIL
+
+    // Você pode adicionar outras lógicas específicas da página home aqui,
+    // que não dependam de dados em tempo real do servidor.
+}
+
+// Chamar a função initHome quando o DOM estiver completamente carregado
+document.addEventListener('DOMContentLoaded', initHome);
