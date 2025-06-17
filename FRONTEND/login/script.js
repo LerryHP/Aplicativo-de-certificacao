@@ -45,7 +45,7 @@ function cadastrarUsuario() {
     .then(data => {
         if (data.success) {
             alert('Usuário cadastrado com sucesso!');
-            window.location.href = '../home.html';
+            window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html';
         } else {
             alert('Erro ao cadastrar o usuário.');
         }
@@ -70,12 +70,14 @@ function loginUsuario() {
   })
     .then(res => res.json())
     .then(data => {
+      console.log('Respostado Beckend', data)
       if (data.success) {
         // Salva o usuário no localStorage
         localStorage.setItem('usuario', JSON.stringify(data.usuario));
+        console.log('Usuário salvo no localStorage:', localStorage.getItem('usuario'));
 
         // Redireciona para home
-        window.location.href = '../home.html';
+        window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html';
       } else {
         alert(data.mensagem || 'Email ou senha incorretos!');
       }

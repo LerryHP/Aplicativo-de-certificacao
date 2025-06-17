@@ -10,21 +10,16 @@ require('dotenv').config();
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);*/
 const db = require('./db'); // conexão com MySQL
 
+
+
+
 const app = express();
 app.use(cors({origin: 'http://127.0.0.1:5500', credentials: true, methods: ['GET', 'POST']}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // para acessar imagens salvas
-/*app.use(session({
-  secret: process.env.SESSION_SECRET || 'uma_chave_secreta_qualquer',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24, // 1 dia
-    sameSite: 'lax',  // importante para cookies em requisições cross-origin
-    secure: false
-  }
-})); //1dia de sessao*/
+app.use(express.static(path.join(__dirname, 'FRONTEND')));
+
 
 
 
