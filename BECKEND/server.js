@@ -6,8 +6,8 @@ const multer = require('multer');
 const path = require('path');
 const session = require('express-session');
 require('dotenv').config();
-/*const Stripe = require('stripe');
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);*/
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const db = require('./db'); // conexão com MySQL
 
 
@@ -160,7 +160,7 @@ app.post('/send-email', async (req, res) => {
 
 
 
-/*
+
 // ROTA DE PAGAMENTO //
 app.post('/criar-checkout', async (req, res) => {
   const { userId, priceId } = req.body;
@@ -209,8 +209,6 @@ app.get('/sucesso', (req, res) => {
   });
 });
 
-
-*/
 
 // === INICIAR SERVIDOR === //
 app.listen(3000, () => {
