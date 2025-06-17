@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         const nomeSpan = document.getElementById('nomeUsuarioPagina');
-        const emailSpan = document.getElementById('emailUsuarioPagina');
         const moedasSpan = document.getElementById('moedasUsuarioPagina');
 
         if (nomeSpan) {

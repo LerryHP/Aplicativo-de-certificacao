@@ -1,6 +1,7 @@
 // home.js - VERSÃO SÓ COM LOCALSTORAGE
 
 async function initHome() {
+    console.log('--- Início da initHome ---');
     const authButton = document.getElementById('authButton')
 
     // 1. Tentar recuperar o usuário do localStorage
@@ -24,7 +25,9 @@ async function initHome() {
 
     let usuario;
     try {
-        usuario = JSON.parse(usuarioSalvo);
+        console.log('Tentando fazer JSON.parse...'); // Adicione este
+        usuario = JSON.parse(usuarioSalvo); // <--- COLOQUE UM BREAKPOINT AQUI
+        console.log('JSON.parse BEM SUCEDIDO!'); // Adicione este
         console.log('Usuário recuperado do localStorage:', usuario);
 
         if(authButton) {
@@ -41,10 +44,10 @@ async function initHome() {
         // Descomente e adapte estas linhas para exibir os dados na sua home.html
         // Certifique-se de que sua home.html tem elementos com esses IDs (ex: <span id="nomeUsuario"></span>)
         document.getElementById('nomeUsuario').textContent = usuario.nome || 'Visitante';
-        document.getElementById('emailUsuario').textContent = usuario.email || 'N/A';
         document.getElementById('moedasUsuario').textContent = usuario.moedas !== undefined ? usuario.moedas : 'N/A';
         // Adicione aqui outros campos que você salvou no localStorage (ex: usuario.id)
 
+        console.log('Interface do usuário atualizada com sucesso!');
     } catch (e) {
         console.error('Erro ao fazer parse do usuário do localStorage:', e);
         // Se o JSON estiver corrompido, limpa o localStorage e redireciona
@@ -55,10 +58,8 @@ async function initHome() {
         return;
     }
 
-    // REMOVEMOS AQUI O BLOCO 'try...catch' DA REQUISIÇÃO AO ENDPOINT /PERFIL
+    console.log('--- Fim da initHome (sem erros) ---');
 
-    // Você pode adicionar outras lógicas específicas da página home aqui,
-    // que não dependam de dados em tempo real do servidor.
 }
 
 // Chamar a função initHome quando o DOM estiver completamente carregado
