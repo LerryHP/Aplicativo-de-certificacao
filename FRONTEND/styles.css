@@ -36,6 +36,17 @@ p {
   
 }
 
+.dados{
+  display: flex; 
+  margin-left: 18%;
+  font-weight: bold;
+  gap: 15%;
+  margin-top: 2.5%;
+  font-size: 110%;
+  text-transform: uppercase;
+}
+
+
 .logo {
   margin-top:1.1%;
   position: fixed;
