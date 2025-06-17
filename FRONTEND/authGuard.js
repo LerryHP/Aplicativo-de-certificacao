@@ -23,9 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nomeSpan) {
             nomeSpan.textContent = usuario.nome || 'Visitante';
         }
-        if (emailSpan) {
-            emailSpan.textContent = usuario.email || 'N/A';
-        }
         if (moedasSpan) {
             moedasSpan.textContent = usuario.moedas !== undefined ? usuario.moedas : 'N/A';
         }
