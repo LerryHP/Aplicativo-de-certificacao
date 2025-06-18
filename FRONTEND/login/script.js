@@ -77,7 +77,7 @@ function loginUsuario() {
 
         if (data.usuario && data.usuario.isAdmin) {
           // Se for o usuário administrador, redireciona para a página de administração
-          window.location.href = 'http://127.0.0.1:5500/FRONTEND/admpage.html';
+          window.location.href = 'http://127.0.0.1:5500/FRONTEND//adm/admpage.html';
           console.log("Logado como Administrador");
         } else {
           // Para todos os outros usuários, redireciona para a home
