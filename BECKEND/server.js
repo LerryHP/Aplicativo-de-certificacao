@@ -41,31 +41,27 @@ app.post('/upload-sneaker', upload.fields([
   { name: 'lingua', maxCount: 1 },
   { name: 'lado', maxCount: 1 },
   { name: 'caixa', maxCount: 1 }
-  
 ]), async (req, res) => {
   try {
-    // NOVO: planType, userId, moedasADescontar vêm do frontend
+    // NOVO: Obter userId do corpo da requisição
     const { estado, modelo, numero, message, planType, userId, moedasADescontar } = req.body;
 
-    console.log('Backend: Dados recebidos para upload-sneaker:', {
-        estado, modelo, numero, message, planType, userId, moedasADescontar
-    });
-
     // Converter para números (Multer passa como string)
-    const parsedUserId = parseInt(userId);
+    // userId agora é sempre importante, se existir, para ser salvo
+    const parsedUserId = userId ? parseInt(userId) : null; // Se userId não for enviado (usuário não logado), será null no BD
     const parsedMoedasADescontar = parseInt(moedasADescontar);
 
-    // Verificar se os campos estão preenchidos
+    // Validar campos obrigatórios (sem alterações aqui)
     if (!estado || !modelo || !numero || !message || !planType) {
       return res.status(400).json({ success: false, mensagem: 'Campos obrigatórios faltando.' });
     }
 
     // --- Lógica de Desconto de Moedas para Plano Pago ---
-    let novasMoedasUsuario = null; // Inicializa com null, só terá valor para plano 'pago'
+    let novasMoedasUsuario = null;
 
     if (planType === 'pago') {
-      // Validações adicionais para plano pago
-      if (!parsedUserId || isNaN(parsedMoedasADescontar) || parsedMoedasADescontar <= 0) {
+      // Validações adicionais para plano pago (userId deve ser válido aqui)
+      if (!parsedUserId || isNaN(parsedUserId) || isNaN(parsedMoedasADescontar) || parsedMoedasADescontar <= 0) {
         return res.status(400).json({ success: false, mensagem: 'Dados de usuário ou moedas para desconto inválidos.' });
       }
 
@@ -84,22 +80,23 @@ app.post('/upload-sneaker', upload.fields([
       const sqlDesconto = 'UPDATE usuarios SET moedas = moedas - ? WHERE id = ?';
       await db.query(sqlDesconto, [parsedMoedasADescontar, parsedUserId]);
 
-      novasMoedasUsuario = saldoAtual - parsedMoedasADescontar; // Calcula o novo saldo
+      novasMoedasUsuario = saldoAtual - parsedMoedasADescontar;
       console.log(`Moedas descontadas: ${parsedMoedasADescontar} do usuário ID ${parsedUserId}. Novo saldo: ${novasMoedasUsuario}`);
 
     }
     // --- Fim da Lógica de Desconto ---
 
-    // Verificar se os arquivos foram enviados
+    // Verificar se os arquivos foram enviados ... (sem alterações)
     const topoUrl = req.files['topo_sapato'] ? req.files['topo_sapato'][0].path : '';
     const solaUrl = req.files['sola'] ? req.files['sola'][0].path : '';
     const linguaUrl = req.files['lingua'] ? req.files['lingua'][0].path : '';
     const ladoUrl = req.files['lado'] ? req.files['lado'][0].path : '';
     const caixaUrl = req.files['caixa'] ? req.files['caixa'][0].path : '';
 
+    // NOVO: Incluir 'usuario_id' na query SQL e nos VALUES
     const sqlInsertTenis = `
-   INSERT INTO tenis (marca, modelo, numero, mensagem, topo_url, sola_url, lingua_url, lado_url, caixa_url, tipo_plano)
-   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+   INSERT INTO tenis (marca, modelo, numero, mensagem, topo_url, sola_url, lingua_url, lado_url, caixa_url, tipo_plano, usuario_id)
+   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
   `;
 
     await db.query(sqlInsertTenis, [
@@ -112,22 +109,21 @@ app.post('/upload-sneaker', upload.fields([
       linguaUrl,
       ladoUrl,
       caixaUrl,
-      planType // Passar o valor do planType aqui
+      planType,
+      parsedUserId // NOVO: Passar o ID do usuário aqui
     ]);
 
-    // Retorna o sucesso e, se for plano pago, o novo saldo de moedas
     res.json({
       success: true,
       mensagem: 'Dados e imagens salvos com sucesso!' + (planType === 'pago' ? ` ${parsedMoedasADescontar} moedas descontadas.` : ''),
-      novasMoedas: novasMoedasUsuario // Retorna o novo saldo para o frontend (será null para plano grátis)
+      novasMoedas: novasMoedasUsuario
     });
 
   } catch (err) {
-    console.error('Erro ao salvar dados ou processar moedas:', err.message); // Log mais descritivo
+    console.error('Erro ao salvar dados ou processar moedas:', err.message);
     res.status(500).json({ success: false, mensagem: 'Erro ao salvar os dados ou processar o plano.' });
   }
 });
-
 
 // CADASTRO //
 app.post('/cadastro', async (req, res) => {
