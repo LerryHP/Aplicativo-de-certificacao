@@ -6,6 +6,7 @@
     <title>Post your photos</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="authGuard.js"></script> 
+    <script src="upload.js"></script>
     <link rel="shortcut icon" href="img/VERIFIQ (2).jpg" type="image/x-icon" />
      <link
       rel="stylesheet"
@@ -51,10 +52,14 @@
 
 
   <form
+        id="uploadForm"
         action="http://localhost:3000/upload-sneaker"
         method="post"
         enctype="multipart/form-data"
       >
+
+      <input type="hidden" name="planType" value="gratis">
+
     <fieldset class="info">
       <table cellspacing="20">
         <h3>Sneaker basic info</h3>

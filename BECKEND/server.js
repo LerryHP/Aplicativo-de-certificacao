@@ -12,7 +12,7 @@ const db = require('./db'); // conexão com MySQL
 
 
 const app = express();
-app.use(cors({origin: 'http://127.0.0.1:5500', credentials: true, methods: ['GET', 'POST']}));
+app.use(cors({ origin: 'http://127.0.0.1:5500', credentials: true, methods: ['GET', 'POST'] }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // para acessar imagens salvas
@@ -41,14 +41,54 @@ app.post('/upload-sneaker', upload.fields([
   { name: 'lingua', maxCount: 1 },
   { name: 'lado', maxCount: 1 },
   { name: 'caixa', maxCount: 1 }
+  
 ]), async (req, res) => {
   try {
-    const { estado, modelo, numero, message } = req.body;
+    // NOVO: planType, userId, moedasADescontar vêm do frontend
+    const { estado, modelo, numero, message, planType, userId, moedasADescontar } = req.body;
+
+    console.log('Backend: Dados recebidos para upload-sneaker:', {
+        estado, modelo, numero, message, planType, userId, moedasADescontar
+    });
+
+    // Converter para números (Multer passa como string)
+    const parsedUserId = parseInt(userId);
+    const parsedMoedasADescontar = parseInt(moedasADescontar);
 
     // Verificar se os campos estão preenchidos
-    if (!estado || !modelo || !numero || !message) {
+    if (!estado || !modelo || !numero || !message || !planType) {
       return res.status(400).json({ success: false, mensagem: 'Campos obrigatórios faltando.' });
     }
+
+    // --- Lógica de Desconto de Moedas para Plano Pago ---
+    let novasMoedasUsuario = null; // Inicializa com null, só terá valor para plano 'pago'
+
+    if (planType === 'pago') {
+      // Validações adicionais para plano pago
+      if (!parsedUserId || isNaN(parsedMoedasADescontar) || parsedMoedasADescontar <= 0) {
+        return res.status(400).json({ success: false, mensagem: 'Dados de usuário ou moedas para desconto inválidos.' });
+      }
+
+      // 1. Verificar saldo atual do usuário
+      const [userRows] = await db.query('SELECT moedas FROM usuarios WHERE id = ?', [parsedUserId]);
+      if (userRows.length === 0) {
+        return res.status(404).json({ success: false, mensagem: 'Usuário não encontrado para desconto de moedas.' });
+      }
+      const saldoAtual = userRows[0].moedas;
+
+      if (saldoAtual < parsedMoedasADescontar) {
+        return res.status(400).json({ success: false, mensagem: 'Moedas insuficientes para este plano.' });
+      }
+
+      // 2. Descontar moedas do banco de dados
+      const sqlDesconto = 'UPDATE usuarios SET moedas = moedas - ? WHERE id = ?';
+      await db.query(sqlDesconto, [parsedMoedasADescontar, parsedUserId]);
+
+      novasMoedasUsuario = saldoAtual - parsedMoedasADescontar; // Calcula o novo saldo
+      console.log(`Moedas descontadas: ${parsedMoedasADescontar} do usuário ID ${parsedUserId}. Novo saldo: ${novasMoedasUsuario}`);
+
+    }
+    // --- Fim da Lógica de Desconto ---
 
     // Verificar se os arquivos foram enviados
     const topoUrl = req.files['topo_sapato'] ? req.files['topo_sapato'][0].path : '';
@@ -57,13 +97,12 @@ app.post('/upload-sneaker', upload.fields([
     const ladoUrl = req.files['lado'] ? req.files['lado'][0].path : '';
     const caixaUrl = req.files['caixa'] ? req.files['caixa'][0].path : '';
 
-    const sql = `
-      INSERT INTO tenis (marca, modelo, numero, mensagem, topo_url, sola_url, lingua_url, lado_url, caixa_url)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `;
+    const sqlInsertTenis = `
+   INSERT INTO tenis (marca, modelo, numero, mensagem, topo_url, sola_url, lingua_url, lado_url, caixa_url, tipo_plano)
+   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+  `;
 
-
-    await db.query(sql, [
+    await db.query(sqlInsertTenis, [
       estado,
       modelo,
       numero,
@@ -72,13 +111,20 @@ app.post('/upload-sneaker', upload.fields([
       solaUrl,
       linguaUrl,
       ladoUrl,
-      caixaUrl
+      caixaUrl,
+      planType // Passar o valor do planType aqui
     ]);
 
-    res.json({ success: true, mensagem: 'Dados e imagens salvos com sucesso!' });
+    // Retorna o sucesso e, se for plano pago, o novo saldo de moedas
+    res.json({
+      success: true,
+      mensagem: 'Dados e imagens salvos com sucesso!' + (planType === 'pago' ? ` ${parsedMoedasADescontar} moedas descontadas.` : ''),
+      novasMoedas: novasMoedasUsuario // Retorna o novo saldo para o frontend (será null para plano grátis)
+    });
+
   } catch (err) {
-    console.error('Erro ao salvar dados:', err.message);
-    res.status(500).json({ success: false, mensagem: 'Erro ao salvar os dados.' });
+    console.error('Erro ao salvar dados ou processar moedas:', err.message); // Log mais descritivo
+    res.status(500).json({ success: false, mensagem: 'Erro ao salvar os dados ou processar o plano.' });
   }
 });
 
@@ -100,43 +146,43 @@ app.post('/cadastro', async (req, res) => {
 
 
 app.post('/login', async (req, res) => {
-    const { email, senha } = req.body;
+  const { email, senha } = req.body;
 
-    try {
-        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
+  try {
+    const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
 
-        if (rows.length > 0) {
-            const usuarioLogado = { 
-                id: rows[0].id,
-                nome: rows[0].nome,
-                email: rows[0].email,
-                moedas: rows[0].moedas,
-                isAdmin: false // Define como falso por padrão
-            };
+    if (rows.length > 0) {
+      const usuarioLogado = {
+        id: rows[0].id,
+        nome: rows[0].nome,
+        email: rows[0].email,
+        moedas: rows[0].moedas,
+        isAdmin: false // Define como falso por padrão
+      };
 
 
-            const ID_ADMINISTRADOR = 4;
+      const ID_ADMINISTRADOR = 4;
 
-            if (usuarioLogado.id === ID_ADMINISTRADOR) {
-                usuarioLogado.isAdmin = true; // Se for o admin, define como true
-            }
+      if (usuarioLogado.id === ID_ADMINISTRADOR) {
+        usuarioLogado.isAdmin = true; // Se for o admin, define como true
+      }
 
-            console.log('Login realizado!', usuarioLogado);
+      console.log('Login realizado!', usuarioLogado);
 
-            // Envia as informações do usuário, incluindo isAdmin
-            res.json({ success: true, mensagem: 'Login realizado com sucesso!', usuario: usuarioLogado });
-        } else {
-            res.status(401).json({ success: false, mensagem: 'Email ou senha incorretos' });
-        }
-    } catch (error) {
-        console.error('Erro ao fazer login:', error);
-        res.status(500).json({ success: false, mensagem: 'Erro no servidor' });
+      // Envia as informações do usuário, incluindo isAdmin
+      res.json({ success: true, mensagem: 'Login realizado com sucesso!', usuario: usuarioLogado });
+    } else {
+      res.status(401).json({ success: false, mensagem: 'Email ou senha incorretos' });
     }
+  } catch (error) {
+    console.error('Erro ao fazer login:', error);
+    res.status(500).json({ success: false, mensagem: 'Erro no servidor' });
+  }
 });
 
 
 
-//  ENVIAR EMAIL //
+// ENVIAR EMAIL //
 app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -167,31 +213,31 @@ app.post('/send-email', async (req, res) => {
 
 
 app.post('/adicionar-moedas-simulado', async (req, res) => {
-    const { userId, moedas } = req.body;
+  const { userId, moedas } = req.body;
 
-    if (!userId || moedas === undefined || moedas < 0) {
-        return res.status(400).json({ success: false, mensagem: 'Dados inválidos para adicionar moedas.' });
-    }
+  if (!userId || moedas === undefined || moedas < 0) {
+    return res.status(400).json({ success: false, mensagem: 'Dados inválidos para adicionar moedas.' });
+  }
 
-    try {
-        // Atualiza as moedas do usuário no banco de dados
-        const sql = 'UPDATE usuarios SET moedas = moedas + ? WHERE id = ?';
-        await db.query(sql, [moedas, userId]);
+  try {
+    // Atualiza as moedas do usuário no banco de dados
+    const sql = 'UPDATE usuarios SET moedas = moedas + ? WHERE id = ?';
+    await db.query(sql, [moedas, userId]);
 
-        // Opcional: Buscar o novo total de moedas para retornar ao frontend
-        const [rows] = await db.query('SELECT moedas FROM usuarios WHERE id = ?', [userId]);
-        const novasMoedas = rows.length > 0 ? rows[0].moedas : 0;
+    // Opcional: Buscar o novo total de moedas para retornar ao frontend
+    const [rows] = await db.query('SELECT moedas FROM usuarios WHERE id = ?', [userId]);
+    const novasMoedas = rows.length > 0 ? rows[0].moedas : 0;
 
-        res.json({ 
-            success: true, 
-            mensagem: `Adicionado ${moedas} moedas com sucesso! Total: ${novasMoedas}`,
-            novasMoedas: novasMoedas // Retorna o novo total de moedas
-        });
+    res.json({
+      success: true,
+      mensagem: `Adicionado ${moedas} moedas com sucesso! Total: ${novasMoedas}`,
+      novasMoedas: novasMoedas // Retorna o novo total de moedas
+    });
 
-    } catch (error) {
-        console.error('Erro ao adicionar moedas simuladas:', error);
-        res.status(500).json({ success: false, mensagem: 'Erro no servidor ao adicionar moedas.' });
-    }
+  } catch (error) {
+    console.error('Erro ao adicionar moedas simuladas:', error);
+    res.status(500).json({ success: false, mensagem: 'Erro no servidor ao adicionar moedas.' });
+  }
 });
 
 
