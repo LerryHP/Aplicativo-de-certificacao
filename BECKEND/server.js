@@ -98,33 +98,78 @@ app.post('/cadastro', async (req, res) => {
 });
 
 
-//login//
 app.post('/login', async (req, res) => {
-  const { email, senha } = req.body;
+    const { email, senha } = req.body;
 
-  try {
-    const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
+    try {
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
 
-    if (rows.length > 0) {
-      const usuario = {
-        id: rows[0].id,
-        nome: rows[0].nome,
-        email: rows[0].email,
-        moedas: rows[0].moedas
-      };
-      
-      console.log('Login realizado!', usuario); // ADICIONE ISSO para depurar
+        if (rows.length > 0) {
+            const usuarioLogado = { // Renomeado para clareza
+                id: rows[0].id,
+                nome: rows[0].nome,
+                email: rows[0].email,
+                moedas: rows[0].moedas,
+                // *** NOVO: Adiciona a propriedade isAdmin ***
+                isAdmin: false // Define como falso por padrão
+            };
 
-      res.json({ success: true, mensagem: 'Login realizado com sucesso!', usuario});
-    } else {
-      res.status(401).json({ success: false, mensagem: 'Email ou senha incorretos' });
+            // Define o usuário administrador com base no ID
+            // ALtere '1' para o ID do seu usuário administrador
+            const ID_ADMINISTRADOR = 1; // <--- DEFINA O ID DO SEU ADMINISTRADOR AQUI!
+
+            if (usuarioLogado.id === ID_ADMINISTRADOR) {
+                usuarioLogado.isAdmin = true; // Se for o admin, define como true
+            }
+
+            console.log('Login realizado!', usuarioLogado);
+
+            // Envia as informações do usuário, incluindo isAdmin
+            res.json({ success: true, mensagem: 'Login realizado com sucesso!', usuario: usuarioLogado });
+        } else {
+            res.status(401).json({ success: false, mensagem: 'Email ou senha incorretos' });
+        }
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        res.status(500).json({ success: false, mensagem: 'Erro no servidor' });
     }
-  } catch (error) {
-    console.error('Erro ao fazer login:', error);
-    res.status(500).json({ success: false, mensagem: 'Erro no servidor' });
-  }
 });
 
+
+app.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
+
+        if (rows.length > 0) {
+            const usuarioLogado = { 
+                id: rows[0].id,
+                nome: rows[0].nome,
+                email: rows[0].email,
+                moedas: rows[0].moedas,
+                isAdmin: false // Define como falso por padrão
+            };
+
+
+            const ID_ADMINISTRADOR = 4;
+
+            if (usuarioLogado.id === ID_ADMINISTRADOR) {
+                usuarioLogado.isAdmin = true; // Se for o admin, define como true
+            }
+
+            console.log('Login realizado!', usuarioLogado);
+
+            // Envia as informações do usuário, incluindo isAdmin
+            res.json({ success: true, mensagem: 'Login realizado com sucesso!', usuario: usuarioLogado });
+        } else {
+            res.status(401).json({ success: false, mensagem: 'Email ou senha incorretos' });
+        }
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        res.status(500).json({ success: false, mensagem: 'Erro no servidor' });
+    }
+});
 
 
 

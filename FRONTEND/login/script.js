@@ -69,15 +69,22 @@ function loginUsuario() {
   })
     .then(res => res.json())
     .then(data => {
-      console.log('Respostado Beckend', data)
+      console.log('Resposta do Backend:', data); 
       if (data.success) {
-        // Salva o usuário no localStorage
         localStorage.setItem('usuario', JSON.stringify(data.usuario));
         console.log('Usuário salvo no localStorage:', localStorage.getItem('usuario'));
 
-        // Redireciona para home
-        window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html';
-        console.log("Logado")
+
+        if (data.usuario && data.usuario.isAdmin) {
+          // Se for o usuário administrador, redireciona para a página de administração
+          window.location.href = 'http://127.0.0.1:5500/FRONTEND/admpage.html';
+          console.log("Logado como Administrador");
+        } else {
+          // Para todos os outros usuários, redireciona para a home
+          window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html';
+          console.log("Logado como Usuário Comum");
+        }
+
       } else {
         alert(data.mensagem || 'Email ou senha incorretos!');
       }
@@ -87,4 +94,3 @@ function loginUsuario() {
       alert('Erro ao fazer login.');
     });
 }
-
