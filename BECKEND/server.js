@@ -237,6 +237,37 @@ app.post('/adicionar-moedas-simulado', async (req, res) => {
 });
 
 
+app.get('/api/envios-pendentes', async (req, res) => {
+    try {
+        // Ajuste aqui: 'status_verificacao' para 'status'
+        const [rows] = await db.query("SELECT * FROM tenis WHERE status = 'Pendente'");
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar envios pendentes:', error);
+        res.status(500).json({ mensagem: 'Erro ao buscar envios pendentes.' });
+    }
+});
+
+
+app.post('/api/atualizar-status-envio', async (req, res) => {
+    const { id, status } = req.body; 
+
+    if (!id || !status || !['Aprovado', 'Reprovado'].includes(status)) {
+        return res.status(400).json({ success: false, mensagem: 'Dados inválidos para atualizar status.' });
+    }
+
+    try {
+        const sql = 'UPDATE tenis SET status = ? WHERE id = ?';
+        await db.query(sql, [status, id]);
+
+        res.json({ success: true, mensagem: `Envio ID ${id} atualizado para ${status}.` });
+    } catch (error) {
+        console.error('Erro ao atualizar status do envio:', error);
+        res.status(500).json({ success: false, mensagem: 'Erro ao atualizar status do envio.' });
+    }
+});
+
+
 
 // === INICIAR SERVIDOR === //
 app.listen(3000, () => {

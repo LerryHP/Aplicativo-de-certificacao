@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>ADM Page</title>
-  <link rel="stylesheet" href="stylesadm.css">
+ <meta charset="UTF-8">
+ <title>ADM Page</title>
+ <link rel="stylesheet" href="stylesadm.css">
 </head>
 <body>
-  
-  <h1>Admnistrator Page</h1>
-  <div id="alerta" class="alert"></div>
+ 
+ <h1>Administrator Page</h1>
+ <div id="alerta" class="alert"></div>
 
-  <div class="container">
-    <div class="lista-usuarios">
-      <h2>Data received</h2>
-      <ul id="usuarios"></ul>
-    </div>
+ <div class="container">
+  <div class="lista-usuarios">    <h2>Data received</h2>
+   <ul id="enviosPendentes"></ul>   </div>
 
-    <div class="detalhes" id="detalhes">
-      <h2>Details</h2>
-      <p>Select a user to see details</p>
-     
-    </div>
+  <div class="detalhes" id="detalhesEnvio">    <h2>Details</h2>
+   <p id="selectMessage">Select a submission to see details</p> <div id="detalhesConteudo" style="display: none;"> <p><strong>Submission ID:</strong> <span id="detalheId"></span></p>
+            <p><strong>Brand:</strong> <span id="detalheMarca"></span></p>
+            <p><strong>Model:</strong> <span id="detalheModelo"></span></p>
+            <p><strong>Size:</strong> <span id="detalheNumero"></span></p>
+            <p><strong>Message:</strong> <span id="detalheMensagem"></span></p>
+            <p><strong>Plan Type:</strong> <span id="detalheTipoPlano"></span></p>
+            <p><strong>User ID:</strong> <span id="detalheUsuarioId"></span></p>
+            <p><strong>Current Status:</strong> <span id="detalheStatus"></span></p> 
+            <div id="detalheImagens">
+                </div>
+            <div class="acoes-admin">
+                <button id="btnAprovar">Approve</button>
+                <button id="btnReprovar">Reject</button>
+            </div>
+        </div>
   </div>
-  <a href="../home.html" class="return">Logoff</a>  
+ </div>
+ <a href="../home.html" class="return" id="logoutAdmin">Logoff</a> 
 
-  <script src="js/script .js"></script>
-</body>
+ <script src="js/adm.js"></script> </body>
 </html>
