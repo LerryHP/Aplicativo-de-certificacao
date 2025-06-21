@@ -3,7 +3,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const listaEnviosUl = document.getElementById('enviosPendentes');
     const detalhesEnvioDiv = document.getElementById('detalhesEnvio');
-    const detalhesConteudoDiv = document.getElementById('detalhesConteudo');
+    const detalhesConteudoDiv = document.getElementById('detalhesConteudo'); // Div que contém os detalhes
+    const selectMessageP = document.getElementById('selectMessage'); // Mensagem "Select a submission..."
     const btnAprovar = document.getElementById('btnAprovar');
     const btnReprovar = document.getElementById('btnReprovar');
     const logoutAdminBtn = document.getElementById('logoutAdmin'); 
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let enviosPendentes = []; 
     let envioSelecionado = null; 
 
-
+    // --- Lógica de Segurança (mantida como está) ---
     let adminLogado = null;
     const usuarioSalvo = localStorage.getItem('usuario');
     if (!usuarioSalvo) {
@@ -21,10 +22,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     try {
         adminLogado = JSON.parse(usuarioSalvo);
-
         if (!adminLogado || adminLogado.id !== 4 || !adminLogado.isAdmin) { 
             alert("Acesso não autorizado. Apenas administradores podem acessar esta página.");
-            window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html'; // Redireciona se não for admin
+            window.location.href = 'http://127.0.0.1:5500/FRONTEND/home.html';
             return;
         }
     } catch (e) {
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-
     if (logoutAdminBtn) {
         logoutAdminBtn.addEventListener('click', () => {
             localStorage.removeItem('usuario');
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-
+    // --- Funções para Gerenciar a Interface ---
 
     async function carregarEnviosPendentes() {
         try {
@@ -53,12 +52,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 throw new Error('Falha ao carregar envios pendentes.');
             }
             enviosPendentes = await response.json();
+            console.log("Envios pendentes carregados:", enviosPendentes); // DEBUG
 
             listaEnviosUl.innerHTML = ''; 
 
             if (enviosPendentes.length === 0) {
                 listaEnviosUl.innerHTML = '<p>No pending submissions.</p>';
-                detalhesConteudoDiv.innerHTML = '<p>Select a submission to see details</p>'; 
+                selectMessageP.style.display = 'block'; // Mostra a mensagem inicial
+                detalhesConteudoDiv.style.display = 'none'; // Esconde o conteúdo dos detalhes
                 btnAprovar.style.display = 'none'; 
                 btnReprovar.style.display = 'none';
                 return;
@@ -72,33 +73,41 @@ document.addEventListener('DOMContentLoaded', async () => {
                 listaEnviosUl.appendChild(li);
             });
 
-
-            if (enviosPendentes.length > 0 && !envioSelecionado) {
+            // Se houver envios, tenta exibir o primeiro por padrão
+            if (enviosPendentes.length > 0) { // Removido !envioSelecionado para sempre mostrar o primeiro ao carregar
                  exibirDetalhesEnvio(enviosPendentes[0].id);
             }
 
         } catch (error) {
             console.error('Erro ao carregar envios:', error);
             document.getElementById('alerta').textContent = 'Error loading submissions.';
-            detalhesConteudoDiv.innerHTML = '<p>Error loading submissions.</p>';
+            selectMessageP.style.display = 'block';
+            detalhesConteudoDiv.style.display = 'none';
+            btnAprovar.style.display = 'none';
+            btnReprovar.style.display = 'none';
         }
     }
 
 
     function exibirDetalhesEnvio(id) {
         envioSelecionado = enviosPendentes.find(envio => envio.id === id);
+        console.log("Envio selecionado para detalhes:", envioSelecionado); // DEBUG: Veja o objeto completo
 
         if (envioSelecionado) {
-            document.getElementById('detalheId').textContent = envioSelecionado.id;
-            document.getElementById('detalheMarca').textContent = envioSelecionado.marca;
-            document.getElementById('detalheModelo').textContent = envioSelecionado.modelo;
-            document.getElementById('detalheNumero').textContent = envioSelecionado.numero;
-            document.getElementById('detalheMensagem').textContent = envioSelecionado.mensagem;
-            document.getElementById('detalheTipoPlano').textContent = envioSelecionado.tipo_plano;
-            document.getElementById('detalheUsuarioId').textContent = envioSelecionado.usuario_id || 'N/A'; 
-            document.getElementById('detalheStatus').textContent = envioSelecionado.status; 
+            selectMessageP.style.display = 'none'; // Esconde a mensagem inicial
+            detalhesConteudoDiv.style.display = 'block'; // Mostra o conteúdo dos detalhes
 
+            // Preencher os spans com os dados (com || 'N/A' para evitar erros se nulo)
+            document.getElementById('detalheId').textContent = envioSelecionado.id || 'N/A';
+            document.getElementById('detalheMarca').textContent = envioSelecionado.marca || 'N/A';
+            document.getElementById('detalheModelo').textContent = envioSelecionado.modelo || 'N/A';
+            document.getElementById('detalheNumero').textContent = envioSelecionado.numero || 'N/A';
+            document.getElementById('detalheMensagem').textContent = envioSelecionado.mensagem || 'N/A';
+            document.getElementById('detalheTipoPlano').textContent = envioSelecionado.tipo_plano || 'N/A';
+            document.getElementById('detalheUsuarioId').textContent = envioSelecionado.usuario_id || 'N/A';
+            document.getElementById('detalheStatus').textContent = envioSelecionado.status || 'N/A'; // Coluna 'status'
 
+            // Exibir Imagens
             const detalheImagensDiv = document.getElementById('detalheImagens');
             detalheImagensDiv.innerHTML = ''; 
             const imagens = [
@@ -111,26 +120,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             imagens.forEach(url => {
                 if (url) {
                     const img = document.createElement('img');
-
                     img.src = `http://localhost:3000/${url}`; 
                     img.alt = 'Sneaker Image';
-                    img.style.maxWidth = '150px';
+                    img.style.maxWidth = '150px'; 
                     img.style.margin = '5px';
+                    img.style.border = '1px solid #ddd'; 
                     detalheImagensDiv.appendChild(img);
                 }
             });
 
-
             btnAprovar.style.display = 'inline-block';
             btnReprovar.style.display = 'inline-block';
         } else {
-            detalhesConteudoDiv.innerHTML = '<p>Submission not found.</p>';
+            // Caso envioSelecionado seja nulo (algo deu errado)
+            selectMessageP.style.display = 'block';
+            detalhesConteudoDiv.style.display = 'none';
+            detalhesConteudoDiv.innerHTML = '<p>Submission not found or error.</p>';
             btnAprovar.style.display = 'none';
             btnReprovar.style.display = 'none';
         }
     }
 
-
+    // --- Funções para Ações do Admin (mantidas) ---
 
     async function atualizarStatusEnvio(status) {
         if (!envioSelecionado) {
@@ -145,7 +156,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 body: JSON.stringify({
                     id: envioSelecionado.id,
                     status: status,
-
                 })
             });
 
@@ -153,18 +163,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (data.success) {
                 alert(data.mensagem);
-
                 const listItem = listaEnviosUl.querySelector(`li[data-envio-id="${envioSelecionado.id}"]`);
                 if (listItem) {
                     listaEnviosUl.removeChild(listItem);
                 }
                 
-
                 envioSelecionado = null; 
-                detalhesConteudoDiv.innerHTML = '<p>Submission processed. Select another one.</p>';
+                selectMessageP.style.display = 'block'; // Mostra a mensagem inicial novamente
+                detalhesConteudoDiv.style.display = 'none'; // Esconde os detalhes
                 btnAprovar.style.display = 'none';
                 btnReprovar.style.display = 'none';
 
+                await carregarEnviosPendentes(); // Recarrega para garantir a lista atualizada
 
             } else {
                 alert(data.mensagem);
@@ -175,10 +185,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // --- Event Listeners (mantidos, mas com verificação para evitar erro de null) ---
+    if (btnAprovar) btnAprovar.addEventListener('click', () => atualizarStatusEnvio('Aprovado'));
+    if (btnReprovar) btnReprovar.addEventListener('click', () => atualizarStatusEnvio('Reprovado'));
 
-    btnAprovar.addEventListener('click', () => atualizarStatusEnvio('Aprovado'));
-    btnReprovar.addEventListener('click', () => atualizarStatusEnvio('Reprovado'));
-
-
+    // Carregar os envios ao iniciar a página
     await carregarEnviosPendentes();
 });
