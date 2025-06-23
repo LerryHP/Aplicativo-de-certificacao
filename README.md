@@ -24,7 +24,12 @@ VerifiQ allows users to upload photos and detailed product information, which ar
 
 ## How to run the project
 
-In development!
+- 
+1. Clone the repository
+2. Open the "BECKEND" folder
+3. Run "npm i" in terminal
+4. Run "node server.js" in terminal
+5. Open "home.html" with "live service"
 
 ---
 
