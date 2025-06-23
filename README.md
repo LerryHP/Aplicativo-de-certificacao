@@ -38,13 +38,13 @@ In development!
 
 ---
 
-### 😥 Gabriel Majeau — Frontend  
+### 😎 Gabriel Majeau — Frontend  
  [gabrielmajeaulopes@gmail.com](mailto:gabrielmajeaulopes@gmail.com)  
  [GitHub](https://github.com/gabmajeau) | [LinkedIn](https://www.linkedin.com/in/gabriel-felipe-majeau-lopes-279892197) | [Instagram](https://instagram.com/gabrielmajeau?igshid=OGQ5ZDc2ODk2ZA==)
 
 ---
 
-### 😃 Gabriel Alderige — Backend  
+### 🌈 Gabriel Alderige — Backend  
  [GitHub](https://github.com/GabrielAlderige)  |  [LinkedIn](https://www.linkedin.com/in/gabrielalderige/)  |  [Instagram](https://www.instagram.com/gabcarvalhomelo/)  |  
  [Site](https://inspirodesignbr.com)
 
